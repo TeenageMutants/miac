@@ -1,0 +1,91 @@
+.slider-inner
+	%link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", :rel => "stylesheet"}
+	#myCarousel.carousel.slide{"data-ride" => "carousel"}
+		/ Indicators
+		%ol.carousel-indicators
+			%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+			%li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+			%li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+			%li{"data-slide-to" => "3", "data-target" => "#myCarousel"}
+		/ Wrapper for slides
+		.carousel-inner{:role => "listbox"}
+			.item.active
+				= image_tag('banner1.png', style: "height: 1%;")
+				.carousel-caption
+					%h3 Chania
+					%p The atmosphere in Chania has a touch of Florence and Venice.
+			.item
+				= image_tag('banner2.png', style: "height: 1%;")
+				.carousel-caption
+					%h3 Chania
+					%p The atmosphere in Chania has a touch of Florence and Venice.
+			.item
+				= image_tag('banner3.png', style: "height: 1%;")
+				.carousel-caption
+					%h3 Flowers
+					%p Beatiful flowers in Kolymbari, Crete.
+			.item
+				= image_tag('banner4.png', style: "height: 1%;")
+				.carousel-caption
+					%h3{style: "color: black;"} Доступая и современая?
+					%p Теперь доступно и в нашем регионе
+		/ Left and right controls
+		%a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
+			%span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+			%span.sr-only Previous
+		%a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
+			%span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+			%span.sr-only Next
+
+/ .slider-inner
+/ 	#da-slider.da-slider
+/ 		.da-slide.da-slide-current
+/ 			%h2
+/ 				%i CLEAN & FRESH
+/ 				%br/
+/ 				%i FULLY RESPONSIVE
+/ 				%br/
+/ 				%i DESIGN
+/ 			%p
+/ 				%i Lorem ipsum dolor amet
+/ 				%br/
+/ 				%i tempor incididunt ut
+/ 				%br/
+/ 				%i veniam omnis
+/ 			.da-img
+/ 				%img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/parallax-slider/img/1.png"}/
+/ 		.da-slide
+/ 			%h2
+/ 				%i RESPONSIVE VIDEO
+/ 				%br/
+/ 				%i SUPPORT AND
+/ 				%br/
+/ 				%i MANY MORE
+/ 			%p
+/ 				%i Lorem ipsum dolor amet
+/ 				%br/
+/ 				%i tempor incididunt ut
+/ 			.da-img
+/ 				%iframe{:allowfullscreen => "", :frameborder => "0", :height => "300", :mozallowfullscreen => "", :src => "http://player.vimeo.com/video/47911018", :webkitallowfullscreen => "", :width => "530"}
+/ 		.da-slide
+/ 			%h2
+/ 				%i USING BEST WEB
+/ 				%br/
+/ 				%i SOLUTIONS WITH
+/ 				%br/
+/ 				%i HTML5/CSS3
+/ 			%p
+/ 				%i Lorem ipsum dolor amet
+/ 				%br/
+/ 				%i tempor incididunt ut
+/ 				%br/
+/ 				%i veniam omnis
+/ 			.da-img
+/ 				%img{:alt => "image01", :src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/parallax-slider/img/html5andcss3.png"}/
+/ 		.da-arrows
+/ 			%span.da-arrows-prev
+/ 			%span.da-arrows-next
+/ 		%nav.da-dots
+/ 			%span.da-dots-current
+/ 			%span
+/ 			%span

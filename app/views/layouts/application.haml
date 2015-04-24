@@ -1,0 +1,40 @@
+!!!
+%html.js.cssanimations.csstransitions{:lang => "en"}
+	/ <![endif]
+	%head
+		%title Официальный сайт МИАЦ Калужской области
+		/ Meta
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+		%meta{:charset => "utf-8"}/
+		%meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+		%meta{:content => "", :name => "description"}/
+		%meta{:content => "", :name => "author"}/
+		/ Favicon
+		%link{:href => "favicon.ico", :rel => "shortcut icon"}
+
+
+
+		%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/line-icons/line-icons.css", :rel => "stylesheet"}/
+
+		/ slider
+
+		%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/parallax-slider/css/parallax-slider.css", :rel => "stylesheet"}/
+		%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css", :rel => "stylesheet"}/
+
+
+		/ JS Implementing Plugins
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/back-to-top.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/smoothScroll.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/parallax-slider/js/modernizr.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/parallax-slider/js/jquery.cslider.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js", :type => "text/javascript"}
+		
+		/ JS Page Level
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/js/app.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/owl-carousel.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/style-switcher.js", :type => "text/javascript"}
+		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/parallax-slider.js", :type => "text/javascript"}
+	%body
+		= yield

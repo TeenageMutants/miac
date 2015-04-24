@@ -1,0 +1,24 @@
+
+.wrapper
+	.header
+		= render 'shared/topbar'
+	= render 'shared/slider'
+	= render 'shared/speed_links'
+	= render 'shared/service_info'
+	= render 'shared/footer'
+/ /wrapper
+
+/ JS Global Compulsory
+
+:javascript
+	jQuery(document).ready(function() {
+			App.init();
+			OwlCarousel.initOwlCarousel();        
+			StyleSwitcher.initStyleSwitcher();      
+			ParallaxSlider.initParallaxSlider();
+	});
+/[if lt IE 9]
+	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/respond.js"></script>
+	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/html5shiv.js"></script>
+	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/placeholder-IE-fixes.js"></script>
+#topcontrol{:style => "position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;", :title => "Scroll Back to Top"}
