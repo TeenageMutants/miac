@@ -12,5 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
+//= require jquery-migrate.min
 //= require_tree .
+
+$('.carousel').carousel({
+  interval: 15000,
+  pause: 'hover'
+});
+$('.tooltips').tooltip();
+$('.tooltips-show').tooltip('show');      
+$('.tooltips-hide').tooltip('hide');       
+$('.tooltips-toggle').tooltip('toggle');       
+$('.tooltips-destroy').tooltip('destroy');       
+
+/*Popovers*/
+$('.popovers').popover();
+$('.popovers-show').popover('show');
+$('.popovers-hide').popover('hide');
+$('.popovers-toggle').popover('toggle');
+$('.popovers-destroy').popover('destroy');

@@ -47,6 +47,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'less-rails'
 gem 'therubyracer'
+gem 'jquery-rails'  # If using Bootstrap's JS plugins.
 gem 'less-rails-bootstrap'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'kaminari'
