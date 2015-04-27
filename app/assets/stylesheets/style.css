@@ -10,7 +10,7 @@
 @import url(http://htmlstream.com/preview/unify-v1.7/assets/css/ie8.css);
 @import url(http://htmlstream.com/preview/unify-v1.7/assets/css/blocks.css);
 @import url(http://htmlstream.com/preview/unify-v1.7/assets/css/plugins.css);
-@import url(http://htmlstream.com/preview/unify-v1.7/assets/css/app.css);
+@import url(app.css);
 
 /*Import CSS Plugins*/
 @import url(http://htmlstream.com/preview/unify-v1.7/assets/css/plugins/style-switcher.css);
@@ -39,7 +39,7 @@ label {
 }
 
 a {
-   color: #72c02c;
+   color: #3498db;
    text-decoration: none;  
 }
 
@@ -53,7 +53,7 @@ a:focus {
   text-decoration: none;
 }
 a:hover {
-   color: #72c02c;
+   color: #3498db;
    text-decoration: underline;
 }
 
@@ -150,7 +150,7 @@ a:hover {
 .service .service-icon {
 	float: left;
 	padding: 10px;
-	color: #72c02c;
+	color: #3498db;
 	font-size: 35px;  
 	text-align: center;
     -webkit-transition: all 0.4s ease-in-out;
@@ -217,7 +217,7 @@ a:hover {
 }
 
 .recent-work a:hover span {
-	border-bottom: solid 2px #72c02c;
+	border-bottom: solid 2px #3498db;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -374,7 +374,7 @@ a.thumbnail {
 
 .thumbnail h3 a:hover,
 .thumbnail-style h3 a:hover {
-	color: #72c02c;
+	color: #3498db;
 	text-decoration: none;
 }
 
@@ -389,7 +389,7 @@ a.thumbnail {
 	color: #fff;
 	padding: 1px 6px;
 	position: absolute;
-	background: #72c02c;
+	background: #3498db;
 	display: inline-block; 
 }
 .thumbnail-style a.btn-more:hover {
@@ -483,14 +483,14 @@ a.thumbnail {
 }
 
 .posts .dl-horizontal dd a:hover { 
-	color: #72c02c; 
+	color: #3498db; 
 	text-decoration: none;
 }
 
 .posts .dl-horizontal:hover dt img,
 .posts .dl-horizontal:hover dd a { 
-	color: #72c02c;
-	border-color: #72c02c !important;
+	color: #3498db;
+	border-color: #3498db !important;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -525,7 +525,7 @@ a.thumbnail {
 
 .team ul.team-socail li i:hover {
 	color: #fff;
-	background: #72c02c;
+	background: #3498db;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -545,7 +545,7 @@ a.thumbnail {
 }
 
 .team .thumbnail-style:hover h3 a {
-	color: #72c02c !important;
+	color: #3498db !important;
 }
 
 .team .thumbnail-style small {
@@ -608,7 +608,7 @@ a.thumbnail {
 	text-decoration: underline;
 }
 .privacy a:hover {
-	color: #72c02c;
+	color: #3498db;
 	text-decoration: none;
 }
 
@@ -664,7 +664,7 @@ ul.blog-tags a i {
 }
 
 ul.blog-tags a:hover {
-	background: #72c02c;
+	background: #3498db;
 }
 
 ul.blog-tags a:hover,
@@ -689,7 +689,7 @@ ul.blog-tags a:hover i {
 }
 
 .blog-photos li img:hover {
-	box-shadow: 0 0 0 2px #72c02c;
+	box-shadow: 0 0 0 2px #3498db;
 }
 
 /*Blog Latest Tweets*/
@@ -737,11 +737,11 @@ ul.blog-tags a:hover i {
 }
 
 .blog-twitter .blog-twitter-inner:hover {
-	border-color: #72c02c;
-	border-top-color: #72c02c;	
+	border-color: #3498db;
+	border-top-color: #3498db;	
 }
 .blog-twitter .blog-twitter-inner:hover:after {
-	border-top-color: #72c02c;	
+	border-top-color: #3498db;	
 }
 
 .blog-twitter .blog-twitter-inner span.twitter-time {
@@ -751,7 +751,7 @@ ul.blog-tags a:hover i {
 }
 
 .blog-twitter .blog-twitter-inner a {
-	color: #72c02c;
+	color: #3498db;
 	text-decoration: none;
 }
 .blog-twitter .blog-twitter-inner a:hover {
@@ -770,7 +770,7 @@ ul.blog-tags a:hover i {
 	margin-bottom: 6px;
 }
 .who li i { 
-	color: #72c02c; 
+	color: #3498db; 
 	font-size: 13px;
 	min-width: 15px;
 	margin-right: 8px;
@@ -839,7 +839,7 @@ ul.blog-tags a:hover i {
 
 .promo-box:hover strong, 
 .promo-box:hover strong a {
-	color: #72c02c;
+	color: #3498db;
 }
 
 /*Promo Service*/
@@ -902,7 +902,7 @@ ul.blog-tags a:hover i {
 }
 
 .info-blocks:hover i.icon-info-blocks {
-	color: #72c02c;
+	color: #3498db;
     -webkit-transition:all 0.2s ease-in-out;
     -moz-transition:all 0.2s ease-in-out;
     -o-transition:all 0.2s ease-in-out;
@@ -1004,7 +1004,7 @@ ul.labels-demo li {
 }
 
 .line-icon-page .item:hover {
-	color: #72c02c;
+	color: #3498db;
 }
 
 /*Line Icon Page
@@ -1078,7 +1078,7 @@ ul.labels-demo li {
 }
 
 .bs-glyphicons li:hover {
-	color: #72c02c;
+	color: #3498db;
 	background-color: #fafafa;
 }
 
@@ -1474,7 +1474,7 @@ ul.labels-demo li {
 }
 
 .status-bar li i {
-	color: #72c02c;
+	color: #3498db;
 	margin-right: 5px;
 }
 
@@ -1517,7 +1517,7 @@ ul.labels-demo li {
 }
 
 .share-list li i {
-	color: #72c02c;
+	color: #3498db;
 	margin-right: 5px;
 }
 
@@ -1637,8 +1637,8 @@ img.img-mouse {
 }
 
 .testimonials-bs .carousel-control-v2 i:hover {
-  color: #72c02c;
-  border-color: #72c02c;
+  color: #3498db;
+  border-color: #3498db;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;

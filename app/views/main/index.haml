@@ -9,15 +9,19 @@
 / /wrapper
 
 / JS Global Compulsory
+/ JS Global Compulsory
+/ JS Implementing Plugins
 
 :javascript
 	jQuery(document).ready(function() {
 			App.init();
-			OwlCarousel.initOwlCarousel();        
-			StyleSwitcher.initStyleSwitcher();      
-			ParallaxSlider.initParallaxSlider();
+			LayerSlider.initLayerSlider();
+			StyleSwitcher.initStyleSwitcher();
+			OwlCarousel.initOwlCarousel();    
+			OwlRecentWorks.initOwlRecentWorksV2();
 	});
-/[if lt IE 9]
+
+/ [if lt IE 9]
 	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/respond.js"></script>
 	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/html5shiv.js"></script>
 	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/placeholder-IE-fixes.js"></script>
