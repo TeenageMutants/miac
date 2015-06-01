@@ -15,3 +15,8 @@
  *= require style
 
  */
+.partners {
+  height: 500px;
+  overflow: auto;
+  position: relative;
+}
