@@ -22,7 +22,8 @@
   background-repeat: no-repeat;
 }
 .partners {
-  height: 500px;
+  height: 120px;
+  /*width: 50%;*/
   overflow: auto;
   position: relative;
 }
