@@ -16,7 +16,10 @@
 
  */
 .parallax-team {
-  background: url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg) 50% 0 repeat fixed;  
+  /*background: url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg) 50% 0 repeat fixed; */
+  background-image:url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg);
+  /*background-size: 50%;*/
+  background-repeat: no-repeat;
 }
 .partners {
   height: 500px;
