@@ -31,6 +31,7 @@ group :development, :test do
   # gem 'debugger'
   gem 'turn', :require => false
   gem 'meta_request'
+
 end
 
 gem 'pg'
@@ -52,6 +53,7 @@ gem 'jquery-rails'  # If using Bootstrap's JS plugins.
 gem 'less-rails-bootstrap'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'kaminari'
+gem "chartkick"
 
 
 #system
