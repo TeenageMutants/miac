@@ -1,14 +1,19 @@
 .owl-carousel-v1.owl-work-v1.margin-bottom-40
 	.headline
 		%h2.pull-left Статистика
-		.owl-navigation
-			.customNavigation
-				%a.owl-btn.prev-v2
-					%i.fa.fa-angle-left
-				%a.owl-btn.next-v2
-					%i.fa.fa-angle-right
+	
+.row
+	.col-md-4
+		= column_chart({"Football" => 10, "Basketball" => 5}, style: "width: 30%;")
+	.col-md-4
+		= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7})
+	.col-md-4
+		= pie_chart({"Телефон" => 50, "Элекронная регистратура" => 200, "Очередь" => 600, "Кол-центр" => 100, "Скорая" => 300})
+
+	
 	%center
 		%h3 Данный раздел находится в наполнении
+	
 	
 / .row.margin-bottom-20
 / 	/ Welcome Block
@@ -41,23 +46,4 @@
 / 	.col-md-4.md-margin-bottom-20
 / 		.headline
 / 			%h2 Latest Shots
-/ 		#myCarousel.carousel.slide.carousel-v1
-/ 			.carousel-inner
-/ 				.item.active
-/ 					%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img5.jpg"}/
-/ 					.carousel-caption
-/ 						%p Facilisis odio, dapibus ac justo acilisis gestinas.
-/ 				.item
-/ 					%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img4.jpg"}/
-/ 					.carousel-caption
-/ 						%p Cras justo odio, dapibus ac facilisis into egestas.
-/ 				.item
-/ 					%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}/
-/ 					.carousel-caption
-/ 						%p Justo cras odio apibus ac afilisis lingestas de.
-/ 			.carousel-arrow
-/ 				%a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
-/ 					%i.fa.fa-angle-left
-/ 				%a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
-/ 					%i.fa.fa-angle-right
-/ 	/ /col-md-4
+/ 	
