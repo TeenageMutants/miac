@@ -17,10 +17,7 @@
 //= require jquery-migrate.min
 //= require_tree .
 
-$('.carousel').carousel({
-  interval: 15000,
-  pause: 'hover'
-});
+
 $('.tooltips').tooltip();
 $('.tooltips-show').tooltip('show');      
 $('.tooltips-hide').tooltip('hide');       

@@ -15,6 +15,9 @@
  *= require style
 
  */
+.parallax-team {
+  background: url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg) 50% 0 repeat fixed;  
+}
 .partners {
   height: 500px;
   overflow: auto;
@@ -25,4 +28,7 @@
 	overflow: auto;
   position: relative;
 
+}
+.top_links {
+	margin-top: 20px;
 }

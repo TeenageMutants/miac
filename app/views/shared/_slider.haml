@@ -2,7 +2,7 @@
 	%link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", :rel => "stylesheet"}
 	#myCarousel.carousel.slide.slider{"data-ride" => "carousel"}
 		/ Indicators
-		%ol.carousel-indicators
+		%ol.carousel-indicators{style: "color: #307bb8"}
 			%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
 			%li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
 			%li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
@@ -11,24 +11,24 @@
 		.carousel-inner{:role => "listbox"}
 			.item.active
 				= image_tag('banner1.png')
-				.carousel-caption
-					%h2 РМИС
-					%h4 Будующее близко!
+				/ .carousel-caption
+				/ 	%h2 РМИС
+				/ 	%h4  Развитие региональной медицинской информационной системы Калужской области.
 			.item
 				= image_tag('banner2.png')
 				.carousel-caption
 					%h2 Телемедицина
-					%h4 Взгляд изнутри
+					%h4 Увеличение эффективности лечения и диагностики с использованием телемедицинских технологий.
 			.item
 				= image_tag('banner3.png')
-				.carousel-caption
-					%h2 ЛИС
-					%h4 Beatiful flowers in Kolymbari, Crete.
+				/ .carousel-caption
+				/ 	%h2 ЛИС
+				/ 	%h4 Beatiful flowers in Kolymbari, Crete.
 			.item
 				= image_tag('banner4.png')
 				.carousel-caption
-					%h2 Доступая и современая?
-					%h4 Теперь доступно и в нашем регионе
+					%h2 ГБУЗ КО "МИАЦ Калужской области" 
+					%h4 Внедрение новых технологий аналитической обработки медико-статистических данных с использованием современных программных средств.
 		/ Left and right controls
 		%a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
 			%span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}

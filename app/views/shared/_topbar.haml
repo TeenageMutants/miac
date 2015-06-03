@@ -1,245 +1,263 @@
-.container
-	.topbar
-		%ul.loginbar.pull-right
-			%li.hoverSelector
-				%i.fa.fa-globe
-				%a Язык
+/ .container
+/ 	.topbar
+/ 		%li
+/ 		= link_to image_tag('MIAC_full_grey.png', style: "width: 170px; margin-top: -3%;"), root_path
+/ 		/ %ul.loginbar.pull-right
+/ 		/ 	%li.hoverSelector
+/ 		/ 		%i.fa.fa-globe
+/ 		/ 		%a Язык
 
-				%ul.languages.hoverSelectorBlock
-					%li{class: params[:lang].present? ? " " : "active"}
-						= link_to root_path do
-							Русский
-							- unless params[:lang].present?
-								%i.fa.fa-check
-					%li{class: params[:lang] == "en" ? "active" : ""}
-						= link_to root_path(lang: "en") do
-							English
-							- if params[:lang] == "en"
-								%i.fa.fa-check
-		%br
+/ 		/ 		%ul.languages.hoverSelectorBlock
+/ 		/ 			%li{class: params[:lang].present? ? " " : "active"}
+/ 		/ 				= link_to root_path do
+/ 		/ 					Русский
+/ 		/ 					- unless params[:lang].present?
+/ 		/ 						%i.fa.fa-check
+/ 		/ 			%li{class: params[:lang] == "en" ? "active" : ""}
+/ 		/ 				= link_to root_path(lang: "en") do
+/ 		/ 					English
+/ 		/ 					- if params[:lang] == "en"
+/ 		/ 						%i.fa.fa-check
+/ 		/ %br
 
-	%button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
-		%span.sr-only Toggle navigation
-		%span.fa.fa-bars
-
-	= link_to image_tag('MIAC_full_grey.png', style: "width: 160px; margin-top: -3%;"), root_path
+/ 	%button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+/ 		%span.sr-only Toggle navigation
+/ 		%span.fa.fa-bars
 
 	
+.nav.navbar{style: "margin-bottom: 9px;"}
+	%a.navbar-brand{:href => "#"}
+		= image_tag('MIAC_full_grey.png', style: "width: 160px; margin-top: -3%;")
+	.container-fluid
+		%button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+			%span.sr-only Toggle navigation
+			%span.fa.fa-bars
+		 
 
-.collapse.navbar-collapse.mega-menu.navbar-responsive-collapse
-	.container
-		%ul.nav.navbar-nav
-			/ Home
-			%li{class: request.path == root_path ? "active": "" }
-				= link_to "Главная", root_path
-			
-			%li.dropdown
-				%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-					Новости
-				%ul.dropdown-menu
+		/ Brand and toggle get grouped for better mobile display
+		.navbar-header
+
+
+		.collapse.navbar-collapse.mega-menu.navbar-responsive-collapse
+			.container.top_links
+				%ul.nav.navbar-nav
+					%li{class: (request.path == root_path ? "active" : " ")}	
+						= link_to root_path do
+							%i.fa.fa-home.fa-lg
 					%li
 						= link_to "Новости", root_path
 					%li
-						= link_to "Инструкции", root_path
-					%li
-						= link_to "Файловый архив", root_path
-					%li
-						= link_to "Официальные документы", root_path
+						= link_to "Материалы", root_path
+					
+					/ %li.dropdown.hoverSelectorBlock
+					/ 	%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+					/ 		Новости
+					/ 	%ul.dropdown-menu
+					/ 		%li
+					/ 			= link_to "Новости", root_path
+					/ 		%li
+					/ 			= link_to "Инструкции", root_path
+					/ 		%li
+					/ 			= link_to "Файловый архив", root_path
+					/ 		%li
+					/ 			= link_to "Официальные документы", root_path
 
-			%li.dropdown
-				%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-					Статистика
-				%ul.dropdown-menu
-					%li
-						= link_to "Статистика", root_path
-					%li
-						= link_to "Графики", root_path
-					%li
-						= link_to "Онлайн библиотека", root_path
-			%li.dropdown
-				%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-					Проекты
-				%ul.dropdown-menu
-					%li
-						= link_to "Телемедицина", root_path
-					%li
-						= link_to "РМИС", root_path
-					%li
-						= link_to "ДЛО", root_path
-					%li
-						= link_to "Скрининг ВПЧ", root_path
-					%li
-						= link_to "Оценка качества", root_path
-			%li.dropdown.mega-menu-fullwidth
-				%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-					ЛПУ
-				%ul.dropdown-menu
-					%li
-						.mega-menu-content.disable-icons
-							.container
-								.row.equal-height
-									.col-md-3.equal-height-in
-										%ul.list-unstyled.equal-height-list
-											%li
-												%h3 Областные
-											/ Typography
-											%li
-												%a{:href => "shortcode_typo_headings.html"}
-													%i.fa.fa-magic
-													Калужская областная клиническая больница 
-											%li
-												%a{:href => "shortcode_typo_dividers.html"}
-													%i.fa.fa-ellipsis-h
-													Калужская областная клиническая больница скорой медицинской помощи
-									.col-md-3.equal-height-in
-										%ul.list-unstyled.equal-height-list
-											%li
-												%h3 Поликлиники
-											/ Buttons
-											%li
-												%a{:href => "shortcode_btn_general.html"}
-													%i.fa.fa-flask
-													General Buttons
-											%li
-												%a{:href => "shortcode_btn_brands.html"}
-													%i.fa.fa-html5
-													Brand & Social Buttons
-											%li
-												%a{:href => "shortcode_btn_effects.html"}
-													%i.fa.fa-bolt
-													Loading & Hover Effects
-											/ End Buttons
-											/ Icons
-											%li
-												%a{:href => "shortcode_icon_general.html"}
-													%i.fa.fa-chevron-circle-right
-													General Icons
-											%li
-												%a{:href => "shortcode_icon_fa.html"}
-													%i.fa.fa-chevron-circle-right
-													Font Awesome Icons
-											%li
-												%a{:href => "shortcode_icon_line.html"}
-													%i.fa.fa-chevron-circle-right
-													Line Icons
-											%li
-												%a{:href => "shortcode_icon_glyph.html"}
-													%i.fa.fa-chevron-circle-right
-													Glyphicons Icons (Bootstrap)
-											%li
-												%a{:href => "shortcode_icon_glyph_pro.html"}
-													%i.fa.fa-chevron-circle-right
-													Glyphicons Icons Pro
-											/ End Icons
-									.col-md-3.equal-height-in
-										%ul.list-unstyled.equal-height-list
-											%li
-												%h3 Городские больницы
-											/ Content Boxes
-											%li
-												%a{:href => "shortcode_box_general.html"}
-													%i.fa.fa-cog
-													General Content Boxes
-											%li
-												%a{:href => "shortcode_box_colored.html"}
-													%i.fa.fa-align-center
-													Colored Boxes
-											%li
-												%a{:href => "shortcode_thumbnails.html"}
-													%i.fa.fa-image
-													Thumbnails
-											%li
-												%a{:href => "shortcode_accordion_and_tabs.html"}
-													%i.fa.fa-list-ol
-													Accordion & Tabs
-											%li
-												%a{:href => "shortcode_timeline1.html"}
-													%i.fa.fa-dot-circle-o
-													Timeline Option 1
-											%li
-												%a{:href => "shortcode_timeline2.html"}
-													%i.fa.fa-dot-circle-o
-													Timeline Option 2
-											%li
-												%a{:href => "shortcode_table_general.html"}
-													%i.fa.fa-table
-													Tables
-											%li
-												%a{:href => "shortcode_compo_progress_bars.html"}
-													%i.fa.fa-align-left
-													Progress Bars
-											%li
-												%a{:href => "shortcode_compo_panels.html"}
-													%i.fa.fa-columns
-													Panels
-											/ End Common Elements
-									.col-md-3.equal-height-in
-										%ul.list-unstyled.equal-height-list
-											%li
-												%h3 ЦРБ
-											/ Forms
-											%li
-												%a{:href => "shortcode_form_general.html"}
-													%i.fa.fa-bars
-													Common Bootstrap Forms
-											%li
-												%a{:href => "shortcode_form_general1.html"}
-													%i.fa.fa-bars
-													General Unify Forms
-											%li
-												%a{:href => "shortcode_form_advanced.html"}
-													%i.fa.fa-bars
-													Advanced Forms
-											%li
-												%a{:href => "shortcode_form_layouts.html"}
-													%i.fa.fa-bars
-													Form Layouts
-											%li
-												%a{:href => "shortcode_form_layouts_advanced.html"}
-													%i.fa.fa-bars
-													Advanced Layout Forms
-											%li
-												%a{:href => "shortcode_form_states.html"}
-													%i.fa.fa-bars
-													Form States
-											%li
-												%a{:href => "shortcode_form_sliders.html"}
-													%i.fa.fa-bars
-													Form Sliders
-											%li
-												%a{:href => "shortcode_form_modals.html"}
-													%i.fa.fa-bars
-													Modals
-											/ End Forms
-											/ Infographics
-											%li
-												%a{:href => "shortcode_carousels.html"}
-													%i.fa.fa-sliders
-													Carousel Examples
-											%li
-												%a{:href => "shortcode_compo_charts.html"}
-													%i.fa.fa-pie-chart
-													Charts & Countdowns
-											%li
-												%a{:href => "shortcode_maps_google.html"}
-													%i.fa.fa-map-marker
-													Google Maps
-											%li
-												%a{:href => "shortcode_maps_vector.html"}
-													%i.fa.fa-align-center
-													Vector Maps
-											/ End Infographics
-			%li.dropdown
-				%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-					Услуги
-				%ul.dropdown-menu
-					%li
-						= link_to "Настройка серверного оборудования", root_path
-					%li
-						= link_to "Проектировка сети", root_path
-					%li
-						= link_to "Разработка сайтов", root_path
-					%li
-						= link_to "Обучение", root_path
-			%li
-				= link_to "О нас", root_path
+					%li.dropdown
+						%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+							Статистика
+						%ul.dropdown-menu
+							%li
+								= link_to "Статистика", root_path
+							%li
+								= link_to "Графики", root_path
+							%li
+								= link_to "Онлайн библиотека", root_path
+					%li.dropdown
+						%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+							Проекты
+						%ul.dropdown-menu
+							%li
+								= link_to "Телемедицина", root_path
+							%li
+								= link_to "РМИС", root_path
+							%li
+								= link_to "ДЛО", root_path
+							%li
+								= link_to "Скрининг ВПЧ", root_path
+							%li
+								= link_to "Оценка качества", root_path
+					%li.dropdown.mega-menu-fullwidth
+						%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+							ЛПУ
+						%ul.dropdown-menu
+							%li
+								.mega-menu-content.disable-icons
+									.container
+										.row.equal-height
+											.col-md-3.equal-height-in
+												%ul.list-unstyled.equal-height-list
+													%li
+														%h3 Областные
+													/ Typography
+													%li
+														%a{:href => "shortcode_typo_headings.html"}
+															%i.fa.fa-magic
+															Калужская областная клиническая больница 
+													%li
+														%a{:href => "shortcode_typo_dividers.html"}
+															%i.fa.fa-ellipsis-h
+															Калужская областная клиническая больница скорой медицинской помощи
+											.col-md-3.equal-height-in
+												%ul.list-unstyled.equal-height-list
+													%li
+														%h3 Поликлиники
+													/ Buttons
+													%li
+														%a{:href => "shortcode_btn_general.html"}
+															%i.fa.fa-flask
+															General Buttons
+													%li
+														%a{:href => "shortcode_btn_brands.html"}
+															%i.fa.fa-html5
+															Brand & Social Buttons
+													%li
+														%a{:href => "shortcode_btn_effects.html"}
+															%i.fa.fa-bolt
+															Loading & Hover Effects
+													/ End Buttons
+													/ Icons
+													%li
+														%a{:href => "shortcode_icon_general.html"}
+															%i.fa.fa-chevron-circle-right
+															General Icons
+													%li
+														%a{:href => "shortcode_icon_fa.html"}
+															%i.fa.fa-chevron-circle-right
+															Font Awesome Icons
+													%li
+														%a{:href => "shortcode_icon_line.html"}
+															%i.fa.fa-chevron-circle-right
+															Line Icons
+													%li
+														%a{:href => "shortcode_icon_glyph.html"}
+															%i.fa.fa-chevron-circle-right
+															Glyphicons Icons (Bootstrap)
+													%li
+														%a{:href => "shortcode_icon_glyph_pro.html"}
+															%i.fa.fa-chevron-circle-right
+															Glyphicons Icons Pro
+													/ End Icons
+											.col-md-3.equal-height-in
+												%ul.list-unstyled.equal-height-list
+													%li
+														%h3 Городские больницы
+													/ Content Boxes
+													%li
+														%a{:href => "shortcode_box_general.html"}
+															%i.fa.fa-cog
+															General Content Boxes
+													%li
+														%a{:href => "shortcode_box_colored.html"}
+															%i.fa.fa-align-center
+															Colored Boxes
+													%li
+														%a{:href => "shortcode_thumbnails.html"}
+															%i.fa.fa-image
+															Thumbnails
+													%li
+														%a{:href => "shortcode_accordion_and_tabs.html"}
+															%i.fa.fa-list-ol
+															Accordion & Tabs
+													%li
+														%a{:href => "shortcode_timeline1.html"}
+															%i.fa.fa-dot-circle-o
+															Timeline Option 1
+													%li
+														%a{:href => "shortcode_timeline2.html"}
+															%i.fa.fa-dot-circle-o
+															Timeline Option 2
+													%li
+														%a{:href => "shortcode_table_general.html"}
+															%i.fa.fa-table
+															Tables
+													%li
+														%a{:href => "shortcode_compo_progress_bars.html"}
+															%i.fa.fa-align-left
+															Progress Bars
+													%li
+														%a{:href => "shortcode_compo_panels.html"}
+															%i.fa.fa-columns
+															Panels
+													/ End Common Elements
+											.col-md-3.equal-height-in
+												%ul.list-unstyled.equal-height-list
+													%li
+														%h3 ЦРБ
+													/ Forms
+													%li
+														%a{:href => "shortcode_form_general.html"}
+															%i.fa.fa-bars
+															Common Bootstrap Forms
+													%li
+														%a{:href => "shortcode_form_general1.html"}
+															%i.fa.fa-bars
+															General Unify Forms
+													%li
+														%a{:href => "shortcode_form_advanced.html"}
+															%i.fa.fa-bars
+															Advanced Forms
+													%li
+														%a{:href => "shortcode_form_layouts.html"}
+															%i.fa.fa-bars
+															Form Layouts
+													%li
+														%a{:href => "shortcode_form_layouts_advanced.html"}
+															%i.fa.fa-bars
+															Advanced Layout Forms
+													%li
+														%a{:href => "shortcode_form_states.html"}
+															%i.fa.fa-bars
+															Form States
+													%li
+														%a{:href => "shortcode_form_sliders.html"}
+															%i.fa.fa-bars
+															Form Sliders
+													%li
+														%a{:href => "shortcode_form_modals.html"}
+															%i.fa.fa-bars
+															Modals
+													/ End Forms
+													/ Infographics
+													%li
+														%a{:href => "shortcode_carousels.html"}
+															%i.fa.fa-sliders
+															Carousel Examples
+													%li
+														%a{:href => "shortcode_compo_charts.html"}
+															%i.fa.fa-pie-chart
+															Charts & Countdowns
+													%li
+														%a{:href => "shortcode_maps_google.html"}
+															%i.fa.fa-map-marker
+															Google Maps
+													%li
+														%a{:href => "shortcode_maps_vector.html"}
+															%i.fa.fa-align-center
+															Vector Maps
+													/ End Infographics
+					%li.dropdown
+						%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+							Услуги
+						%ul.dropdown-menu
+							%li
+								= link_to "Настройка серверного оборудования", root_path
+							%li
+								= link_to "Проектировка сети", root_path
+							%li
+								= link_to "Разработка сайтов", root_path
+							%li
+								= link_to "Обучение", root_path
+					%li{class: request.path == root_path ? "active": "" }
+						= link_to "Форум", root_path
+					%li{class: request.path == about_path ? "active": "" }
+						= link_to "О нас", about_path

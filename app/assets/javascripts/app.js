@@ -1,11 +1,3 @@
-/*
- * Template Name: Unify - Responsive Bootstrap Template
- * Description: Business, Corporate, Portfolio, E-commerce and Blog Theme.
- * Version: 1.7
- * Author: @htmlstream
- * Website: http://htmlstream.com
-*/
-
 var App = function () {
 	//Fixed Header
 	function handleHeader() {
