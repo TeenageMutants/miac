@@ -1,11 +1,13 @@
 .slider-inner
 	%link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", :rel => "stylesheet"}
+	/ %link{:href => "#{Rails.root}/public/bo.css", :rel => "stylesheet"}
 	#myCarousel.carousel.slide.slider{"data-ride" => "carousel"}
 		/ Indicators
 		%ol.carousel-indicators{style: "color: #307bb8"}
 			%li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
 			%li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
 			%li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+			%li{"data-slide-to" => "3", "data-target" => "#myCarousel"}
 			%li{"data-slide-to" => "3", "data-target" => "#myCarousel"}
 		/ Wrapper for slides
 		.carousel-inner{:role => "listbox"}
@@ -25,6 +27,8 @@
 				/ 	%h4 Beatiful flowers in Kolymbari, Crete.
 			.item
 				= image_tag('banner4.png')
+			.item
+				= image_tag('banner5.png')
 
 				
 		/ Left and right controls
