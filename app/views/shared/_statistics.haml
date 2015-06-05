@@ -3,14 +3,12 @@
 		%h2.pull-left Статистика
 	
 .row
-	.col-md-4
-		= column_chart({"Football" => 10, "Basketball" => 5}, style: "width: 30%;")
-	.col-md-4
-		= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7})
-	.col-md-4
-		= pie_chart({"Телефон" => 50, "Элекронная регистратура" => 200, "Очередь" => 600, "Кол-центр" => 100, "Скорая" => 300})
-
-	
+	/ .col-md-4
+	/ / 	= column_chart({"Football" => 10, "Basketball" => 5}, style: "width: 30%;")
+	/ .col-md-4
+	/ 	= line_chart({20.day.ago => 5, 1368174456 => 4, "2013-05-07 00:00:00 UTC" => 7})
+	/ .col-md-4
+	/ 	= line_chart(Statistic::MOD_ONE.map{ |h| [name: "121" ,data: h[1]]})
 	%center
 		%h3 Данный раздел находится в наполнении
 	

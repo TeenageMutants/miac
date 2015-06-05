@@ -14,9 +14,9 @@
 						.headline
 							%h2 Последние новости
 						%ul.list-unstyled.latest-list
-							/ %li
-							/ 	%a{:href => "#"} Incredible content
-							/ 	%small May 8, 2014
+							%li
+								%a{:href => "#"} Данный раздел находится в наполнении
+								/ %small May 8, 2014
 							/ %li
 							/ 	%a{:href => "#"} Best shoots
 							/ 	%small June 23, 2014
@@ -28,10 +28,12 @@
 						%h2 Ссылки
 					%ul.list-unstyled.link-list
 						%li
-							%a{:href => "#"} О нас
+							= link_to about_path do
+								О нас
 							%i.fa.fa-angle-right
 						%li
-							%a{:href => "#"} Статистика
+							= link_to root_path do
+								Статистика
 							%i.fa.fa-angle-right
 						%li
 							%a{:href => "#"} Проекты
@@ -49,13 +51,9 @@
 					%address.md-margin-bottom-40
 						Калужская область, г. Калуга
 						
-						%br/
+						%br
 						ул. Вишневского д.1
-						/ %br/
-						/ Phone: 800 123 3456
-						/ %br/
-						/ Fax: 800 123 3456
-						%br/
+						%br
 						Email:
 						%a{:href => "mailto:admin@miac.kaluga.ru"} admin@miac.kaluga.ru
 	.copyright
@@ -65,32 +63,17 @@
 					%p
 						2015 © Все права защищены.
 						%a{:href => "#"} ГБУЗ КО МИАЦ Калужской области
-						|
-						%a{:href => "#"} Cистема MEDNET
-				/ Social Links
+						/ |
 				.col-md-6
 					%ul.footer-socials.list-inline
-						%li
-							%a.tooltips{"data-original-title" => "Facebook", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
-								%i.fa.fa-facebook
+						/ %li
+						/ 	%a.tooltips{"data-original-title" => "Facebook", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
+						/ 		%i.fa.fa-facebook
 						%li
 							%a.tooltips{"data-original-title" => "Skype", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
 								%i.fa.fa-skype
-						/ %li
-						/ 	%a.tooltips{"data-original-title" => "Google Plus", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
-						/ 		%i.fa.fa-google-plus
-						/ %li
-						/ 	%a.tooltips{"data-original-title" => "Linkedin", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
-						/ 		%i.fa.fa-linkedin
-						/ %li
-						/ 	%a.tooltips{"data-original-title" => "Pinterest", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
-						/ 		%i.fa.fa-pinterest
 						%li
-							%a.tooltips{"data-original-title" => "Twitter", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
+							%a.tooltips{"data-original-title" => "Twitter", "data-placement" => "top", "data-toggle" => "tooltip", :href => "https://twitter.com/guzmiacko", :title => ""}
 								%i.fa.fa-twitter
-						/ %li
-						/ 	%a.tooltips{"data-original-title" => "Dribbble", "data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => ""}
-						/ 		%i.fa.fa-dribbble
-				/ End Social Links
-	/ /copyright
+
 / === End Footer Version 1 ===
