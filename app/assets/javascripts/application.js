@@ -32,8 +32,5 @@ $('.popovers-toggle').popover('toggle');
 $('.popovers-destroy').popover('destroy');
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(
-    	delay: { "show": 100, "hide": 400 }
-    	);
-
+    $('[data-toggle="tooltip"]').tooltip();
 });
