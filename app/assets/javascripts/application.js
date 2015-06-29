@@ -30,3 +30,10 @@ $('.popovers-show').popover('show');
 $('.popovers-hide').popover('hide');
 $('.popovers-toggle').popover('toggle');
 $('.popovers-destroy').popover('destroy');
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(
+    	delay: { "show": 100, "hide": 400 }
+    	);
+
+});
