@@ -34,3 +34,21 @@ $('.popovers-destroy').popover('destroy');
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+function hide_show(){
+	var div=document.getElementById("div").style.display;
+	var link=document.getElementById("link").innerHTML;
+	if(div=="")div="block";
+	if(div=="none")
+	{
+		div="block";
+		link="Скрыть карту";
+	}
+	else
+	{
+		div="none";
+		link="Посмотреть по карте";
+	}
+	document.getElementById("div").style.display=div;
+	document.getElementById("link").innerHTML=link
+;};
