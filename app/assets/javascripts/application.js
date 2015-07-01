@@ -50,5 +50,5 @@ function hide_show(){
 		link="Посмотреть по карте";
 	}
 	document.getElementById("div").style.display=div;
-	document.getElementById("link").innerHTML=link
-;};
+	document.getElementById("link").innerHTML=link;
+};
