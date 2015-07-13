@@ -4,6 +4,19 @@ Rails.application.routes.draw do
   get 'test' => 'main#test'
   get 'testi' => 'main#testi'
 
+
+
+  resources :articles, :only => [:index]  do
+    collection do
+      # get 'news'
+      get 'docs'
+     
+    end
+    member do
+      get 'full_page'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

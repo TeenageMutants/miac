@@ -13,5 +13,10 @@
 /tmp
 
 .rvmrc
+.idea/
 
 config/database.yml
+
+.idea/vagrant.xml
+
+passenger.3000.pid

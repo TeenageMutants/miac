@@ -44,8 +44,8 @@
 					%li{class: (request.path == root_path ? "active" : " ")}	
 						= link_to root_path do
 							%i.fa.fa-home.fa-lg
-					%li
-						= link_to "Новости", root_path
+					%li{class: (request.path == articles_path ? "active" : " ")}
+						= link_to "Новости",  articles_path
 					%li
 						= link_to "Материалы", root_path
 					%li.dropdown
