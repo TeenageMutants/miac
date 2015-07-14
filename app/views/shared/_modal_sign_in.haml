@@ -1,0 +1,26 @@
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{style: "margin-top: 200px; width:350px; z-index: 99999;"}
+    = form_tag new_user_session_path do
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#myModalLabel.modal-title Авторизация
+        .modal-body
+          %center
+            .form-group
+              .col-sm-12
+                = text_field_tag 'user[username]', nil,{class: "#inputEmail3 form-control", placeholder: "логин"}
+                %br
+              .form-group
+                .col-sm-12
+                  = text_field_tag 'user[password]', nil,{class: "#inputPassword3 form-control",:type => "password", placeholder: "пароль"}
+            .form-group
+              .col-sm-offset-3.col-sm-10
+                .checkbox
+                  %label
+                    = check_box_tag 'user[remember_me]'
+                    Запомнить в системе
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
+          = submit_tag "Войти", class: 'btn btn-primary'

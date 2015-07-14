@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'main#index'
   get 'about' => "main#about"
   get 'test' => 'main#test'
   get 'testi' => 'main#testi'
 
+  namespace :admin do
+    root 'main#index'
+  end
 
 
   resources :articles, :only => [:index]  do
