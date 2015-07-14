@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
   root 'main#index'
   get 'about' => "main#about"
@@ -9,14 +10,15 @@ Rails.application.routes.draw do
     root 'main#index'
   end
 
-
-  resources :articles, :only => [:index]  do
+  resources :articles, :only =>  [:index, :show, :create, :new]  do
     collection do
       # get 'news'
       get 'docs'
      
     end
     member do
+      get 'edit'
+      put 'edit'
       get 'full_page'
     end
   end

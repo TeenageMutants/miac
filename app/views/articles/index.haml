@@ -4,7 +4,7 @@
       .pull-right
         %p
           = link_to "Добавить новость", articles_path, class: "btn-u btn-brd btn-brd-hover rounded-2x btn-u-blue" if user_signed_in?
-
+  = render 'form'
   .row
     .col-sm-6.sm-margin-bottom-40
       .funny-boxes.funny-boxes-top-red

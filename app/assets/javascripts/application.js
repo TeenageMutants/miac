@@ -11,9 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require ckeditor/init
 //= require jquery-migrate.min
 //= require_tree .
 
@@ -52,3 +54,11 @@ function hide_show(){
 	document.getElementById("div").style.display=div;
 	document.getElementById("link").innerHTML=link;
 };
+$(document).ready(function() {
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
+});

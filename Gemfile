@@ -34,6 +34,10 @@ group :development, :test do
 
 end
 
+
+
+
+#system
 gem 'pg'
 gem 'haml-rails'
 gem 'haml'
@@ -54,10 +58,6 @@ gem 'less-rails-bootstrap'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'kaminari'
 gem "chartkick"
-
-
-#system
-
 gem 'unicode'
 gem 'roo'
 gem 'devise'
@@ -67,8 +67,14 @@ gem 'ffi', '1.4.0'
 gem 'passenger'
 gem "font-awesome-rails", '~> 4.3'
 
+#redactor and storage images
+gem 'ckeditor'
+gem 'paperclip'
 
-# gem 'redactor-rails'
+
+
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 
 
