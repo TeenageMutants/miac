@@ -1,0 +1,119 @@
+#articleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{style: "width: 70%;"}
+    = form_for @article, :url => {  action: "create"}  do |f|
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#myModalLabel.modal-title Добавление статьи
+        .modal-body
+          %table.table
+            %tr
+              %th
+                Заголовок
+              %td
+                = f.text_field :title,  placeholder: "Заголовок", class: 'form-control'
+            %tr
+              %th
+                ТЕГИ
+              %td
+                - tags = Article::TAGS.select {|k,v| k != 6}
+
+                = f.select :tag, options_for_select((tags.map{ |h| [h[1][:name], h[0]]}), @article.types)
+            %tr
+              %th
+                Тип
+              %td
+                - types = Article::TYPES.select {|k,v| k != 6}
+
+                = f.select :types, options_for_select((types.map{ |h| [h[1][:name], h[0]]}), @article.types), {id: 'me'}, :onchange => 'r()'
+                :javascript
+                  function r() {
+                      var x = document.getElementById("article_types").value;
+
+
+                      if (x == 3) {
+                              document.getElementById("idd").style.display = 'block';
+                      }
+                      else{
+                              document.getElementById("idd").style.display = 'none';
+                  }}
+            %tr
+              %th
+                Анннотация
+              %td= f.cktext_area :preview, :cols => 2, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini',:width => '100%', :height => '50px'}
+            %tr
+              %th
+                Текст
+              %td= f.cktext_area :body, :rows => 55, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini', :width => '100%', :height => '150px'}
+
+            %tr
+              %th
+                Изображение
+              %td= f.file_field :image
+            %tr
+              %th
+                Выставить дату
+              %td
+                %input.check_pick{:name => "check_pick", :onchange => "valueChanged()", :type => "checkbox", :value => "1"}
+                :javascript
+                  $(".date_picker").hide();
+                  $(".check_pick").click(function() {
+                    if($(this).is(":checked")) {
+                      $(".date_picker").show();
+                    } else {
+                      $(".date_picker").hide();
+                    }
+                  });
+
+
+            %tr.date_picker{style: "display: none;"}
+              %td
+              %td
+
+                %link{:href => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+                %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+                %script{:src => "//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"}
+                .row
+                  .form-group
+                    .col-md-1
+                      %center
+                        = f.label :at, "C"
+                    .col-md-5
+                      = f.text_field :published_at, id: "datetimepicker6", class: "form-control"
+                    .col-md-1
+                      по
+                    .col-md-5
+                      = f.text_field :published_to, id: "datetimepicker7", class: "form-control"
+
+                :javascript
+                  $(function () {
+                    $('#datetimepicker6').datetimepicker({
+                      locale: 'ru'
+                    });
+                    $('#datetimepicker7').datetimepicker({
+                      locale: 'ru'
+                    });
+                    $("#datetimepicker6").on("dp.change", function (e) {
+                        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                    });
+                    $("#datetimepicker7").on("dp.change", function (e) {
+                        //$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                    });
+                  });
+            -#= image_tag(@article.image.url(:thumb)) unless request.path == new_article_path
+            -#%tr
+            -#  %th
+            -#    Ссылка на видео
+            -#  %td= f.text_field :vid_url
+            %tr
+              %td
+              %td
+                #idd
+                  .form-group
+                    %label{:for => "exampleInputFile"} Загрузка файла
+                    = f.file_field :file, class: "#exampleInputFile",:type => "file"
+
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
+          = f.submit (request.path == root_path ? "Изменить": "Создать"), :class => "btn btn-primary", :disable_with => "Ждите"

@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 public/ckeditor_assets
+public/system
 .rvmrc
 .idea/
 
