@@ -35,22 +35,22 @@
                 О нас
               %i.fa.fa-angle-right
             %li
-              = link_to root_path do
+              = link_to statistics_path do
                 Статистика
               %i.fa.fa-angle-right
             %li
-              %a{:href => "#"} Проекты
+              = link_to projects_path do
+                Проекты
               %i.fa.fa-angle-right
             %li
-              %a{:href => "#"} Услуги
+              = link_to service_path do
+                Услуги
               %i.fa.fa-angle-right
-            %li
-              %a{:href => "#"} ЛПУ
-              %i.fa.fa-angle-right
+
 
         .col-md-3.map-img.md-margin-bottom-40
           .headline
-            %h2 Contact Us
+            %h2 Контакты
           %address.md-margin-bottom-40
             Калужская область, г. Калуга
 
