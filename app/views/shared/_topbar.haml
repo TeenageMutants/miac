@@ -35,8 +35,6 @@
   %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
     %span.sr-only Toggle navigation
     %span.fa.fa-bars
-
-
 .nav.navbar{style: "margin-bottom: 9px;"}
   %a.navbar-brand{:href => "#"}
     = image_tag('MIAC_full_grey.png', style: "width: 160px; margin-top: -3%;")
@@ -44,12 +42,7 @@
     %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
       %span.sr-only Toggle navigation
       %span.fa.fa-bars
-
-
-    / Brand and toggle get grouped for better mobile display
     .navbar-header
-
-
     .collapse.navbar-collapse.mega-menu.navbar-responsive-collapse
       .container.top_links
         %ul.nav.navbar-nav
@@ -58,30 +51,30 @@
               %i.fa.fa-home.fa-lg
           %li{class: (request.path == articles_path ? "active" : " ")}
             = link_to "Новости",  articles_path
-          %li
-            = link_to "Материалы", root_path
-          %li.dropdown
+          -#%li
+          -#  = link_to "Материалы", root_path
+          %li.dropdown{class: request.path == statistics_path ? "active": "" }
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
               Статистика
             %ul.dropdown-menu
               %li
-                = link_to "Статистика", root_path
+                = link_to "Статистика", statistics_path
               %li
-                = link_to "Графики", root_path
+                = link_to "Графики", statistics_path
               %li
-                = link_to "Онлайн библиотека", root_path
-          %li.dropdown
+                = link_to "Онлайн библиотека", statistics_path
+          %li.dropdown{class: request.path == projects_path ? "active": "" }
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
               Проекты
             %ul.dropdown-menu
               %li
-                = link_to "Телемедицина", root_path
+                = link_to "Телемедицина", projects_path
               %li
-                = link_to "РМИС", root_path
+                = link_to "РМИС", projects_path
               %li
-                = link_to "ДЛО", root_path
+                = link_to "ДЛО", projects_path
               %li
-                = link_to "Скрининг ВПЧ", root_path
+                = link_to "Скрининг ВПЧ", projects_path
               %li
                 = link_to "Оценка качества", root_path
           %li.dropdown.mega-menu-fullwidth
@@ -371,17 +364,17 @@
                             = link_to "#" do
                               %i.fa.fa-hospital-o
                               «Городская поликлиника МО «г.Кременки»
-          %li.dropdown
+          %li.dropdown{class: request.path == service_path ? "active": "" }
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
               Услуги
             %ul.dropdown-menu
               %li
-                = link_to "Настройка серверного оборудования", root_path
+                = link_to "Настройка серверного оборудования", service_path
               %li
-                = link_to "Проектировка сети", root_path
+                = link_to "Проектировка сети", service_path
               %li
-                = link_to "Разработка сайтов", root_path
+                = link_to "Разработка сайтов", service_path
               %li
-                = link_to "Обучение", root_path
+                = link_to "Обучение", service_path
           %li{class: request.path == about_path ? "active": "" }
             = link_to "О нас", about_path

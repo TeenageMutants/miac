@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   get 'test' => 'main#test'
   get 'testi' => 'main#testi'
 
+  resources :statistics, :only =>  [:index]  do
+
+  end
+
+  get 'projects' => "main#projects"
+
+  get 'service' => "main#service"
+
   namespace :admin do
     root 'main#index'
   end
