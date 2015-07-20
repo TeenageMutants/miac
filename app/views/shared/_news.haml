@@ -35,14 +35,14 @@
                   -#%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
                   = image_tag((article.image.present? ? article.image.url(:news) : "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"), class: "img-responsive", style: "width:260px;")
                   .col-md-12
+                    %p
                     %p.lead{style: "font-size: small;"}
                       %strong
-                        -#= article.title
-                        = truncate(article.title, :length => 60, :omission => "...")
+                        = truncate(article.title, :length => 30, :omission => "...")
 
                   .row
                     .col-md-12
-                      = truncate( raw( sanitize(article.body.html_safe, :tags => %w(), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
+                      = truncate( raw( sanitize(article.body.html_safe, :tags => %w(), :attributes => %w(id class style) ) ), :length => 130, :omission => "...")
 
                   .row
                     .col-md-12
