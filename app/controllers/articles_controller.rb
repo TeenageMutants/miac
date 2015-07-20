@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
     # (params[:article][:image].present? ? params[:article][:image] : nil)
     art = Article.create(image:(params[:article][:image].present? ? params[:article][:image] : nil), title: params[:article][:title], types: params[:article][:types], preview:params[:article][:preview], body: params[:article][:body], vid_url: (params[:article][:vid_url] unless params[:article][:vid_url].blank?), published_at: params[:article][:published_at].blank? ?  Time.now : params[:article][:published_at], published_to: params[:article][:published_to].blank? ? Time.now + 3.year : params[:article][:published_to], user_id: current_user.id, tag: params[:article][:tag])
     redirect_to :action => 'index'
-    Article.add_article(params, curret_user)
     flash[:alert] = art.errors.full_messages.join(", ")
   end
   def new
@@ -45,7 +44,7 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
     if params[:commit].present?
-      @article.update_attributes(image: (params[:article][:image].present? ? params[:article][:image] : @article.image ),title: params[:article][:title], types: params[:article][:types], preview:params[:article][:preview], body: params[:article][:body], vid_url: (params[:article][:vid_url] unless params[:article][:vid_url].blank?), published_at: Time.now, published_to: Time.now, user_id: current_user.id)
+      @article.update_attributes(image: (params[:article][:image].present? ? params[:article][:image] : @article.image ),title: params[:article][:title], types: params[:article][:types], body: params[:article][:body], vid_url: (params[:article][:vid_url] unless params[:article][:vid_url].blank?), published_at: Time.now, published_to: Time.now, user_id: current_user.id)
       flash[:alert] = @article.errors.full_messages.join(", ")
       redirect_to articles_path, notice: "Запись успешно обновлена"
     end

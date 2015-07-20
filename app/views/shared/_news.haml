@@ -1,244 +1,294 @@
+%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/css/pages/page_job.css", :rel => "stylesheet"}/
 .owl-carousel-v1.owl-work-v1.margin-bottom-40
   .headline
     %h2.pull-left Новости
 
-  / %center
-  / 	%h3 Данный раздел находится в наполнении
-  %link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/css/pages/page_job.css", :rel => "stylesheet"}/
+- articles = Article.all
+- unless articles.present?
+  %center
+    %h3
+      Данный раздел напоняется
+- else
+  .row.high-rated.margin-bottom-20
+    - tags = Article::TAGS.select {|k,v| k != 123}
+    - tags.each do |key, value|
+      -#= value[:name]
+      -#= key
+      .col-md-3.col-sm-6.md-margin-bottom-40
+        .easy-block-v1
+          .easy-block-v1-badge{class: "#{value[:color]}"}
+            = value[:name]
+            - @key = key
+          #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+            %ol.carousel-indicators
+              %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+              %li.rounded-x{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+              %li.rounded-x.active{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+            .carousel-inner
 
-.row.high-rated.margin-bottom-20
-  / Easy Block
+              -i = -1
+              - active_status = ["active","",""]
 
+              - articles.where(tag: @key).last(3).each do |article|
+                -i+=1
+                .item{class: "#{active_status[i]}"}
+                  -#%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
+                  = image_tag((article.image.present? ? article.image.url(:news) : "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"), class: "img-responsive", style: "width:260px;")
+                  .col-md-12
+                    %p.lead{style: "font-size: small;"}
+                      %strong
+                        -#= article.title
+                        = truncate(article.title, :length => 60, :omission => "...")
 
+                  .row
+                    .col-md-12
+                      = truncate( raw( sanitize(article.body.html_safe, :tags => %w(), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
 
-
-
-  .col-md-3.col-sm-6.md-margin-bottom-40
-    .easy-block-v1
-      .easy-block-v1-badge.rgba-default Marketing
-      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
-        %ol.carousel-indicators
-          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-          %li.rounded-x{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-          %li.rounded-x.active{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
-        .carousel-inner
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
-            .overflow-h
-              %h3 1 новость
-              .star-vote.pull-right
-                %ul.list-inline
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star-half-o
-                  %li
-                    %i.color-green.fa.fa-star-o
-              %ul.list-unstyled
-                %li
-                  %span.color-green Position:
-                  Manager / Executive
-                %li
-                  %span.color-green Required:
-                  5 - years of experience
-              %a.btn-u.btn-u-sm{:href => "#"} View More
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img1.jpg"}
-            .overflow-h
-              %h3 2 новость
-              .star-vote.pull-right
-                %ul.list-inline
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star-half-o
-                  %li
-                    %i.color-green.fa.fa-star-o
-              %ul.list-unstyled
-                %li
-                  %span.color-green Position:
-                  Manager / Executive
-                %li
-                  %span.color-green Required:
-                  5 - years of experience
-              %a.btn-u.btn-u-sm{:href => "#"} View More
-          .item.active
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img7.jpg"}
-            .overflow-h
-              %h3 3 новость
-              .star-vote.pull-right
-                %ul.list-inline
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star
-                  %li
-                    %i.color-green.fa.fa-star-half-o
-                  %li
-                    %i.color-green.fa.fa-star-o
-              %ul.list-unstyled
-                %li
-                  %span.color-green Position:
-                  Manager / Executive
-                %li
-                  %span.color-green Required:
-                  5 - years of experience
-              %a.btn-u.btn-u-sm{:href => "#"} View More
-      -#.overflow-h
-      -#  %h3 Savoy Hotel London
-      -#  .star-vote.pull-right
-      -#    %ul.list-inline
-      -#      %li
-      -#        %i.color-green.fa.fa-star
-      -#      %li
-      -#        %i.color-green.fa.fa-star
-      -#      %li
-      -#        %i.color-green.fa.fa-star
-      -#      %li
-      -#        %i.color-green.fa.fa-star-half-o
-      -#      %li
-      -#        %i.color-green.fa.fa-star-o
-      -#%ul.list-unstyled
-      -#  %li
-      -#    %span.color-green Position:
-      -#    Manager / Executive
-      -#  %li
-      -#    %span.color-green Required:
-      -#    5 - years of experience
-      -#%a.btn-u.btn-u-sm{:href => "#"} View More
-  / End Easy Block
-  / Easy Block
+                  .row
+                    .col-md-12
+                      = link_to "Читать больше", full_page_article_path(id: article.id), class: "btn-u btn-u-sm"
 
 
 
 
 
 
-
-
-
-
-
-  .col-md-3.col-sm-6.md-margin-bottom-40
-    .easy-block-v1
-      .easy-block-v1-badge.rgba-red Marketing
-      #carousel-example-generic-2.carousel.slide{"data-ride" => "carousel"}
-        %ol.carousel-indicators
-          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-2"}
-          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-2"}
-          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-2"}
-        .carousel-inner
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"}/
-          .item.active
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img10.jpg"}/
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img21.jpg"}/
-      .overflow-h
-        %h3 Thomas Cook Holidays
-        %ul.list-inline.star-vote
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star-half-o
-      %ul.list-unstyled
-        %li
-          %span.color-green Position:
-          Marketing / Advertising
-        %li
-          %span.color-green Required:
-          7 - years of experience
-      %a.btn-u.btn-u-sm{:href => "#"} View More
-  / End Easy Block
-  / Easy Block
-  .col-md-3.col-sm-6.md-margin-bottom-40
-    .easy-block-v1
-      .easy-block-v1-badge.rgba-blue Education
-      #carousel-example-generic-3.carousel.slide{"data-ride" => "carousel"}
-        %ol.carousel-indicators
-          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-3"}
-          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-3"}
-          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-3"}
-        .carousel-inner
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img4.jpg"}/
-          .item.active
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img14.jpg"}/
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img8.jpg"}/
-      .overflow-h
-        %h3 University of Aberdeen
-        %ul.list-inline.star-vote
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star-o
-          %li
-            %i.color-green.fa.fa-star-o
-      %ul.list-unstyled
-        %li
-          %span.color-green Position:
-          Education / Training
-        %li
-          %span.color-green Required:
-          10 - years of experience
-      %a.btn-u.btn-u-sm{:href => "#"} View More
-  / End Easy Block
-  / Easy Block
-  .col-md-3.col-sm-6
-    .easy-block-v1
-      .easy-block-v1-badge.rgba-purple IT Management
-      #carousel-example-generic-4.carousel.slide{"data-ride" => "carousel"}
-        %ol.carousel-indicators
-          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-4"}
-          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-4"}
-          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-4"}
-        .carousel-inner
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img20.jpg"}/
-          .item.active
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img23.jpg"}/
-          .item
-            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img25.jpg"}/
-      .overflow-h
-        %h3 IT Project Management
-        %ul.list-inline.star-vote
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star
-          %li
-            %i.color-green.fa.fa-star-o
-      %ul.list-unstyled
-        %li
-          %span.color-green Position:
-          Project / Program Management
-        %li
-          %span.color-green Required:
-          2 - years of experience
-      %a.btn-u.btn-u-sm{:href => "#"} View More
-
+-#
+-#
+-#
+-#.row.high-rated.margin-bottom-20
+-#  / Easy Block
+-#
+-#
+-#
+-#
+-#
+-#  .col-md-3.col-sm-6.md-margin-bottom-40
+-#    .easy-block-v1
+-#      .easy-block-v1-badge.rgba-default Marketing
+-#      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+-#        %ol.carousel-indicators
+-#          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+-#          %li.rounded-x{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+-#          %li.rounded-x.active{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+-#        .carousel-inner
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
+-#            .overflow-h
+-#              %h3 1 новость
+-#              .star-vote.pull-right
+-#                %ul.list-inline
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star-half-o
+-#                  %li
+-#                    %i.color-green.fa.fa-star-o
+-#              %ul.list-unstyled
+-#                %li
+-#                  %span.color-green Position:
+-#                  Manager / Executive
+-#                %li
+-#                  %span.color-green Required:
+-#                  5 - years of experience
+-#              %a.btn-u.btn-u-sm{:href => "#"} View More
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img1.jpg"}
+-#            .overflow-h
+-#              %h3 2 новость
+-#              .star-vote.pull-right
+-#                %ul.list-inline
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star-half-o
+-#                  %li
+-#                    %i.color-green.fa.fa-star-o
+-#              %ul.list-unstyled
+-#                %li
+-#                  %span.color-green Position:
+-#                  Manager / Executive
+-#                %li
+-#                  %span.color-green Required:
+-#                  5 - years of experience
+-#              %a.btn-u.btn-u-sm{:href => "#"} View More
+-#          .item.active
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img7.jpg"}
+-#            .overflow-h
+-#              %h3 3 новость
+-#              .star-vote.pull-right
+-#                %ul.list-inline
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star
+-#                  %li
+-#                    %i.color-green.fa.fa-star-half-o
+-#                  %li
+-#                    %i.color-green.fa.fa-star-o
+-#              %ul.list-unstyled
+-#                %li
+-#                  %span.color-green Position:
+-#                  Manager / Executive
+-#                %li
+-#                  %span.color-green Required:
+-#                  5 - years of experience
+-#              %a.btn-u.btn-u-sm{:href => "#"} View More
+-#      -#.overflow-h
+-#      -#  %h3 Savoy Hotel London
+-#      -#  .star-vote.pull-right
+-#      -#    %ul.list-inline
+-#      -#      %li
+-#      -#        %i.color-green.fa.fa-star
+-#      -#      %li
+-#      -#        %i.color-green.fa.fa-star
+-#      -#      %li
+-#      -#        %i.color-green.fa.fa-star
+-#      -#      %li
+-#      -#        %i.color-green.fa.fa-star-half-o
+-#      -#      %li
+-#      -#        %i.color-green.fa.fa-star-o
+-#      -#%ul.list-unstyled
+-#      -#  %li
+-#      -#    %span.color-green Position:
+-#      -#    Manager / Executive
+-#      -#  %li
+-#      -#    %span.color-green Required:
+-#      -#    5 - years of experience
+-#      -#%a.btn-u.btn-u-sm{:href => "#"} View More
+-#  / End Easy Block
+-#  / Easy Block
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-#
+-#  .col-md-3.col-sm-6.md-margin-bottom-40
+-#    .easy-block-v1
+-#      .easy-block-v1-badge.rgba-red Marketing
+-#      #carousel-example-generic-2.carousel.slide{"data-ride" => "carousel"}
+-#        %ol.carousel-indicators
+-#          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-2"}
+-#          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-2"}
+-#          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-2"}
+-#        .carousel-inner
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"}/
+-#          .item.active
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img10.jpg"}/
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img21.jpg"}/
+-#      .overflow-h
+-#        %h3 Thomas Cook Holidays
+-#        %ul.list-inline.star-vote
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star-half-o
+-#      %ul.list-unstyled
+-#        %li
+-#          %span.color-green Position:
+-#          Marketing / Advertising
+-#        %li
+-#          %span.color-green Required:
+-#          7 - years of experience
+-#      %a.btn-u.btn-u-sm{:href => "#"} View More
+-#  / End Easy Block
+-#  / Easy Block
+-#  .col-md-3.col-sm-6.md-margin-bottom-40
+-#    .easy-block-v1
+-#      .easy-block-v1-badge.rgba-blue Education
+-#      #carousel-example-generic-3.carousel.slide{"data-ride" => "carousel"}
+-#        %ol.carousel-indicators
+-#          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-3"}
+-#          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-3"}
+-#          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-3"}
+-#        .carousel-inner
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img4.jpg"}/
+-#          .item.active
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img14.jpg"}/
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img8.jpg"}/
+-#      .overflow-h
+-#        %h3 University of Aberdeen
+-#        %ul.list-inline.star-vote
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star-o
+-#          %li
+-#            %i.color-green.fa.fa-star-o
+-#      %ul.list-unstyled
+-#        %li
+-#          %span.color-green Position:
+-#          Education / Training
+-#        %li
+-#          %span.color-green Required:
+-#          10 - years of experience
+-#      %a.btn-u.btn-u-sm{:href => "#"} View More
+-#  / End Easy Block
+-#  / Easy Block
+-#  .col-md-3.col-sm-6
+-#    .easy-block-v1
+-#      .easy-block-v1-badge.rgba-purple IT Management
+-#      #carousel-example-generic-4.carousel.slide{"data-ride" => "carousel"}
+-#        %ol.carousel-indicators
+-#          %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic-4"}
+-#          %li.rounded-x.active{"data-slide-to" => "1", "data-target" => "#carousel-example-generic-4"}
+-#          %li.rounded-x{"data-slide-to" => "2", "data-target" => "#carousel-example-generic-4"}
+-#        .carousel-inner
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img20.jpg"}/
+-#          .item.active
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img23.jpg"}/
+-#          .item
+-#            %img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img25.jpg"}/
+-#      .overflow-h
+-#        %h3 IT Project Management
+-#        %ul.list-inline.star-vote
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star
+-#          %li
+-#            %i.color-green.fa.fa-star-o
+-#      %ul.list-unstyled
+-#        %li
+-#          %span.color-green Position:
+-#          Project / Program Management
+-#        %li
+-#          %span.color-green Required:
+-#          2 - years of experience
+-#      %a.btn-u.btn-u-sm{:href => "#"} View More
+-#

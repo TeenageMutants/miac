@@ -62,18 +62,9 @@
                       %strong
                         %i
                           = link_to "#{article.title}", full_page_article_path(article.id)
-                    -#%ul.list-unstyled.funny-boxes-rating
-                    -#  %li
-                    -#    %i.fa.fa-star
-                    -#  %li
-                    -#    %i.fa.fa-star
-                    -#  %li
-                    -#    %i.fa.fa-star
-                    -#  %li
-                    -#    %i.fa.fa-star
-                    -#  %li
-                    -#    %i.fa.fa-star
+
                     %p
-                      =  article.preview.html_safe
+                      = truncate( raw( sanitize(article.body.html_safe, :tags => %w(), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
+
                     .pull-right
                       = link_to "Прочитать полностью", full_page_article_path(article.id), class: "btn-u btn-u-sm"

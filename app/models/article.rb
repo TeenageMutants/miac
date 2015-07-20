@@ -1,7 +1,7 @@
 # coding: utf-8
 class Article < ActiveRecord::Base
 	# attr_accessible :title, :preview, :body, :published_at, :published_to, :user_id, :types, :vid_url, :image
-	has_attached_file :image, :styles => { :hd => "1080x720>", :xlarge => "1920x700>", :large => "750x300>", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/rails.png"
+	has_attached_file :image, :styles => { :hd => "1080x720>", :xlarge => "1920x700>", :news =>"973x615#", :large => "750x300>", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/rails.png"
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 	scope :types_0, -> { where(types: 0)}
@@ -18,7 +18,7 @@ class Article < ActiveRecord::Base
 
 
 	TYPES = {123 => {name: "Тип (Выберите...)"}, 0 => {name: "Новость"}, 1 => {name: "Полезная информация"}, 2 => {name: "Инструкции"}, 3 => {name: "Документы"}, 4 => {name: "Файловый архив"}, 5 => {name: "Видеокурсы"}, 6 => {name: "ДЛО"}}
-	TAGS = {123 => {name: "Тег (Выберите...)"}, 0 => {name: "Министерство здравоохранения"}, 1 => {name: "РМИС"}, 2 => {name: "Информатизация"}, 3 => {name: "Деятельность МИАЦ'a"}}
+	TAGS = {123 => {name: "Тег (Выберите...)"}, 0 => {name: "Здравоохранение", color: "rgba-default"}, 1 => {name: "Информатизация", color: "rgba-blue"}, 2 => {name: "Проекты", color: "rgba-yellow"}, 3 => {name: "Деятельность МИАЦ'a", color: "rgba-purple"}}
 
 	def self.add_article params,current_user
 		Article.create(title:params[:title], types:params[:types], preview:params[:preview], body: params[:body], vid_url: (params[:vid_url] if params[:vid_url].present?), published_at: Time.now, published_to: Time.now, user_id: current_user.id)
