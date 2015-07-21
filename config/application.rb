@@ -24,5 +24,6 @@ module Miac
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
+    config.assets.enabled = true
   end
 end
