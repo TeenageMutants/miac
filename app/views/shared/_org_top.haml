@@ -1,0 +1,16 @@
+%ul.dropdown-menu
+  %li
+    .mega-menu-content.disable-icons
+      .container
+        .row.equal-height
+          .col-md-12.equal-height-in
+            %ul.list-unstyled.equal-height-list
+              - TypeOrganization.order(id: :asc).in_groups_of(4, false).each do |two_w|
+                .col-md-4
+                  - two_w.each do |w|
+                    %li
+                      %h4
+                        = w.name
+                    - Organization.where(type_org_id: w.id).each do |r|
+                      %li
+                        = link_to "#{r.name}", root_path

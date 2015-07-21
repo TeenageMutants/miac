@@ -1,0 +1,118 @@
+
+/ вот страничка сss
+-#= stylesheet_link_tag "http://htmlstream.com/preview/unify-v1.7/assets/css/pages/profile.css"
+-#= stylesheet_link_tag "http://htmlstream.com/preview/unify-v1.7/assets/css/pages/shortcode_timeline2.css"
+/ CSS Theme
+-#%link#style_color{:href => "http://htmlstream.com/preview/unify-v1.7/assets/css/theme-colors/default.css", :rel => "stylesheet"}/
+-#= stylesheet_link_tag "http://htmlstream.com/preview/unify-v1.7/assets/css/theme-skins/dark.css"
+/ CSS Customization
+-#= stylesheet_link_tag "http://htmlstream.com/preview/unify-v1.7/assets/css/custom.css"
+
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/jquery/jquery.min.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/jquery/jquery-migrate.min.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/bootstrap/js/bootstrap.min.js"
+/ JS Implementing Plugins
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/smoothScroll.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/circles-master/circles.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"
+-#/ JS Customization
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/custom.js"
+/ JS Page Level
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/app.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/datepicker.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/circles-master.js"
+-#= javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/style-switcher.js"
+
+
+
+.container.content.profile
+  .row
+    .col-md-3.md-margin-bottom-40
+      %img.img-responsive.profile-img.margin-bottom-20{:alt => "", :src => "http://www.bk-38.narod.ru/images/foto/kob_4.jpg"}/
+
+      .panel-heading-v2.overflow-h
+        %h2.heading-xs.pull-left
+        %i.fa.fa-briefcase
+        Телефонный справочник
+        %a{:href => "#"}
+      .panel-body
+        %table
+          %tr
+            %td
+              %h5.heading-xs
+                Приемная главного врача
+            %td{style: "width:50%;"}
+              %h5.heading-xs
+                +7(4842)32 32 32
+          %tr
+            %td
+              %h5.heading-xs
+                Главная медсестра
+            %td
+              %h5.heading-xs
+                + 7(4842)32 32 32
+          %tr
+            %td
+              %h5.heading-xs
+                Зам по мед части
+            %td
+              %h5.heading-xs
+                + 7(4842)32 32 32
+      %hr
+    .col-md-9
+      .profile-body
+        .profile-bio
+          .row
+            .col-md-12
+              %h2
+                %strong
+                  %center
+                    = @organization.full_name
+              %span
+                %strong Теги:
+
+              %span
+                %strong Адрес:
+                = @organization.address
+              %hr
+                = @organization.description.html_safe
+              %span
+                %strong Веб-сайт:
+                = link_to "#{@organization.web_site}", @organization.web_site, style: "left: 0%; bottom: 0px; margin-left: 0px; text-align: center; position: relative;"
+              %hr
+
+        .panel.panel-profile{style: "margin-top: 2%;"}
+          .panel-heading.overflow-h
+            %h2.panel-title.heading-sm.pull-left
+            %i.fa.fa-bar-chart-o
+            Графики
+            %a{:href => "#"}
+            %i.fa.fa-cog.pull-right
+          .panel-body.margin-bottom-40
+            .col-md-6
+              = pie_chart({"Football" => 10, "Basketball" => 5})
+            .col-md-6
+              = pie_chart({"Football" => 10, "Basketball" => 5})
+
+        .panel.panel-profile{style: "margin-top: 2%;"}
+          .panel-heading.overflow-h
+            %h2.panel-title.heading-sm.pull-left
+            %i.fa.fa-bar-chart-o
+            Отчеты
+            %a{:href => "#"}
+            %i.fa.fa-cog.pull-right
+          .panel-body.margin-bottom-40
+            .col-md-6
+              Годовой отчет
+            .col-md-6
+              Ежеквартальный отчет
+
+:javascript
+  jQuery(document).ready(function() {
+    App.init();
+    App.initScrollBar();
+    Datepicker.initDatepicker();
+    CirclesMaster.initCirclesMaster1();
+    StyleSwitcher.initStyleSwitcher();
+  });
