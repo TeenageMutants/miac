@@ -1,0 +1,70 @@
+
+.container.content-sm
+  .row
+    .col-md-12
+      .pull-right
+        %p
+          = link_to "Добавить новость", "#", "data-target" => "#articleModal", "data-toggle" => "modal", class: "btn-u btn-brd btn-brd-hover rounded-2x btn-u-blue" if user_signed_in?
+
+  = render "modal_form"
+
+  - unless @articles.present?
+    .row
+      .col-sm-12
+        %center
+          %h2
+            Данный раздел находится в наполнении.
+
+  - else
+    - @articles.in_groups_of(2).each do |two_articles|
+      %br
+      .row
+        - two_articles.each do |article|
+          - if article.present?
+            .col-sm-6.sm-margin-bottom-40
+              .funny-boxes.funny-boxes-top-red
+                - if user_signed_in?
+                  .row
+                    .pull-right
+                      = link_to articles_path(id: article.id, method: 'delete'), :data => { :confirm => 'Вы уверены, что хотите удалить этот пост?' } do
+                        %span.label.label-danger
+                          %i.fa.fa-trash-o
+                      = link_to edit_article_path(id: article.id) do
+                        %span.label.label-warning
+                          %i.fa.fa-pencil
+                      - unless article.published_at == nil
+                        = link_to  articles_path(id: article.id, method: 'unpublic'), :data => { :confirm => 'Вы уверены, что хотите оправить пост в архив?' } do
+                          %span.label.label-primary
+                            %i.fa.fa-sign-out
+                      - else
+                        = link_to  articles_path(id: article.id, method: 'public'), :data => { :confirm => 'Опубликовать?' } do
+                          %span.label.label-success
+                            %i.fa.fa-sign-out
+                .row
+                  .col-md-4.funny-boxes-img
+
+                    -#%img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"}
+                    -#article.image.url(:thumb)
+                    = image_tag((article.image.present? ? article.image : "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"), class: "img-responsive")
+
+                    %ul.list-unstyled
+                      - unless article.published_at == nil
+                        %li
+                          %i.fa-fw.fa.fa-calendar
+                          = I18n.l article.published_at, format: "%d %b %Y, %H:%M"
+                      - else
+                        %li
+                          %span.label.label-danger
+                            Неопубликован
+
+                  .col-md-8
+                    %h2
+                      %strong
+                        %i
+                          = link_to "#{article.title}", full_page_article_path(article.id)
+
+                    %p
+                      = truncate( raw( sanitize(article.body.html_safe, :tags => %w(), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
+
+                    .pull-right
+                      = link_to "Прочитать полностью", full_page_article_path(article.id), class: "btn-u btn-u-sm"

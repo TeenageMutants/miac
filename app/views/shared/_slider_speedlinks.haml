@@ -1,0 +1,51 @@
+.slider-inner
+  %link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", :rel => "stylesheet"}
+
+  #meCarousel.carousel.slide.slider{"data-ride" => "carousel"}
+    / Indicators
+
+
+    / Wrapper for slides
+    .carousel-inner{:role => "listbox"}
+      .item.active
+        .purchase
+          .container
+            .row
+              .col-md-9.animated.fadeInLeft
+                %span Запись на прием к врачу в электронном ввиде
+                %p Теперь у Вас появилась возможность записаться к врачу с помощью сервиса в удобное для вас время.
+              .col-md-3.btn-buy.animated.fadeInRight
+                .pull-left
+                  = link_to "http://xn--40-6kcanlw5ddbimco.xn--p1ai/", class: "btn btn-primary" do
+                    %i.fa.fa-phone.fa-1x
+                      Запись на прием к врачу
+      .item
+        .purchase
+          .container
+            .row
+              .col-md-9.animated.fadeInLeft
+                %span Участок прикрепления
+                %p Для того чтобы узнать к какому учреждению Вы относитесь введите улицу
+
+              .col-md-3.animated.fadeInRight
+                .pull-left
+                  %br
+                    = link_to "#", :onclick => "hide_show();return false;", class: "btn btn-primary",style: "cursor:pointer;", id: "link" do
+                      %i.fa.fa-globe.fa-1x
+                        Посмотреть по карте
+
+
+      .item
+        .purchase
+          .container
+            .row
+              .col-md-9.animated.fadeInLeft
+                %span Дополнительное лекарственное обеспечение
+                %p Узнайте всю необходимую информацию включая адреса лготных аптек.
+              .col-md-3.btn-buy.animated.fadeInRight
+                .pull-left
+                  = link_to "#", class: "btn btn-primary" do
+                    %i.fa.fa-medkit.fa-1x
+                      Информация по ДЛО
+
+  = render 'shared/map'

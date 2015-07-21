@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 	
@@ -34,6 +34,10 @@ group :development, :test do
 
 end
 
+
+
+
+#system
 gem 'pg'
 gem 'haml-rails'
 gem 'haml'
@@ -54,20 +58,22 @@ gem 'less-rails-bootstrap'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'kaminari'
 gem "chartkick"
-
-
-#system
-
 gem 'unicode'
 gem 'roo'
+gem 'devise'
 gem 'russian'
 gem 'rails-i18n'
 gem 'ffi', '1.4.0'
 gem 'passenger'
 gem "font-awesome-rails", '~> 4.3'
 
+#redactor and storage images
+gem 'ckeditor'
+gem 'paperclip'
 
-# gem 'redactor-rails'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 
 

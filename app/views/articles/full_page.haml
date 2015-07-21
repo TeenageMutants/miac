@@ -1,0 +1,27 @@
+%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/css/pages/blog.css", :rel => "stylesheet"}
+
+.container.content.blog-page.blog-item
+  / Blog Post
+  = link_to "Назад", :back, class: "btn btn-primary"
+
+  .blog.margin-bottom-40
+    .blog-img
+      -#%img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"}
+      %center
+        -#= image_tag((@article.image.present? ? @article.image.url(:large) : "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"), class:"img-responsive")
+    %h2
+      %a{:href => "blog_item_option1.html"}
+      = link_to "#{@article.title}", "#"
+    .blog-post-tags
+      %ul.list-unstyled.list-inline.blog-info
+        %li
+          %i.fa.fa-calendar
+          = I18n.l @article.published_at, format: "%a, %d %b %Y, %H:%M"
+        -#%li
+        -#  %i.fa.fa-pencil
+        -#  Diana Anderson
+        %li
+          %i.fa.fa-tags
+          Медицина
+    %p
+      = @article.body.html_safe

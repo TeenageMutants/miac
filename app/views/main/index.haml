@@ -1,14 +1,16 @@
 
 = render 'shared/slider'
-= render 'shared/speed_links'
-.container.content
-	= render 'shared/map'
-	= render 'shared/service_info'
+-#= render 'shared/speed_links'
 
-	= render 'shared/news'
-	= render 'shared/statistics'
-	= render 'shared/clients'
-	
+.container.content
+  = render 'shared/service_info'
+= render 'shared/slider_speedlinks'
+
+.container.content
+  = render 'shared/news'
+  = render 'shared/statistics'
+  = render 'shared/clients'
+
 / /wrapper
 
 
@@ -19,16 +21,16 @@
 / JS Implementing Plugins
 
 :javascript
-	jQuery(document).ready(function() {
-			App.init();
-			LayerSlider.initLayerSlider();
-			StyleSwitcher.initStyleSwitcher();
-			OwlCarousel.initOwlCarousel();    
-			OwlRecentWorks.initOwlRecentWorksV2();
-	});
+  jQuery(document).ready(function() {
+    App.init();
+    LayerSlider.initLayerSlider();
+    StyleSwitcher.initStyleSwitcher();
+    OwlCarousel.initOwlCarousel();
+    OwlRecentWorks.initOwlRecentWorksV2();
+  });
 
-/ [if lt IE 9]
-	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/respond.js"></script>
-	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/html5shiv.js"></script>
-	<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/placeholder-IE-fixes.js"></script>
-/ #topcontrol{:style => "position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;", :title => "Scroll Back to Top"}
+-#/ [if lt IE 9]
+-#<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/respond.js"></script>
+-#<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/html5shiv.js"></script>
+-#<script src="http://htmlstream.com/preview/unify-v1.7/assets/plugins/placeholder-IE-fixes.js"></script>
+#topcontrol{:style => "position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;", :title => "Scroll Back to Top"}

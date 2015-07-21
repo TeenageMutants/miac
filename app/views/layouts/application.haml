@@ -1,27 +1,29 @@
 !!!
 %html.js.cssanimations.csstransitions{:lang => "en"}
-	%head
-		%title Официальный сайт ГБУЗ КО МИАЦ Калужской области
-		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-		= javascript_include_tag 'application', 'data-turbolinks-track' => true
-		= csrf_meta_tags
-		%meta{:charset => "utf-8"}/
-		%meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-		%meta{name: "description", content: "Калуга, МИАЦ Калуга, ГБУЗ МИАЦ Калужской области, МИАЦ"}
-		%meta{:content => "Michael Hitchens", :name => "author"}
-		%meta{name:"google-site-verification", content:"eGuzh6wl846c-uXnGxmJ2GwyA6fNHVT_FQugWqDGADM"}
-		/ %meta{name:'yandex-verification', content: '600520444eb9260c'}
+  %head
+    %title Официальный сайт ГБУЗ КО МИАЦ Калужской области
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{name: "description", content: "Калуга, МИАЦ Калуга, ГБУЗ МИАЦ Калужской области, МИАЦ"}
+    %meta{:content => "Michael Hitchens", :name => "author"}
+    %meta{name:"google-site-verification", content:"eGuzh6wl846c-uXnGxmJ2GwyA6fNHVT_FQugWqDGADM"}
+    / %meta{name:'yandex-verification', content: '600520444eb9260c'}
 
-		%link{:href => "favicon.ico", :rel => "shortcut icon"}
-		%link{:href => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css", :rel => "stylesheet"}/
-		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js", :type => "text/javascript"}
+    = stylesheet_link_tag "favicon.ico", :rel => "shortcut icon"
+    = stylesheet_link_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css"
+    = javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"
+    = javascript_include_tag  "http://htmlstream.com/preview/unify-v1.7/assets/plugins/back-to-top.js"
+    = javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/owl-carousel.js"
+    = javascript_include_tag "https://www.google.com/jsapi", "chartkick"
+  %body
+    = render "shared/modal_sign_in"
+    .wrapper
+      .header
+        = render 'shared/topbar'
+      = bootstrap_flash
+      = yield
 
-
-		%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/owl-carousel.js", :type => "text/javascript"}
-		= javascript_include_tag "https://www.google.com/jsapi", "chartkick"
-	%body
-		.wrapper
-			.header
-				= render 'shared/topbar'
-			= yield
-			= render 'shared/footer'
+      = render 'shared/footer'
