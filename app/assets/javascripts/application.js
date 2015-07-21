@@ -12,15 +12,18 @@
 //
 //= require jquery
 //= require moment
+//= require ckeditor/init
 //= require bootstrap-datetimepicker
 //= require moment/ru
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require ckeditor/init
 //= require jquery-migrate.min
 //= require_tree .
 
+$('.ckeditor').ckeditor({
+    // optional config
+});
 
 $('.tooltips').tooltip();
 $('.tooltips-show').tooltip('show');      
