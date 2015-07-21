@@ -3,7 +3,17 @@
   %head
     :javascript
       var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+        if ($('textarea').length > 0) {
+          var data = $('textarea');
+          $.each(data, function(i) {
+              CKEDITOR.replace(data[i].id);
+          });
+        }
+      });
+
     %title Официальный сайт ГБУЗ КО МИАЦ Калужской области
+    %script{:src => "//cdn.ckeditor.com/4.5.1/full/ckeditor.js"}
+    = javascript_include_tag 'ckeditor/ckeditor.js'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
