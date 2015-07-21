@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 public/ckeditor_assets
+public/assets
 public/system
 .rvmrc
 .idea/
@@ -21,3 +22,4 @@ config/database.yml
 .idea/vagrant.xml
 
 passenger.3000.pid
+

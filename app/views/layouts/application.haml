@@ -18,6 +18,9 @@
     = javascript_include_tag  "http://htmlstream.com/preview/unify-v1.7/assets/plugins/back-to-top.js"
     = javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/owl-carousel.js"
     = javascript_include_tag "https://www.google.com/jsapi", "chartkick"
+    :javascript
+      var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+
   %body
     = render "shared/modal_sign_in"
     .wrapper
