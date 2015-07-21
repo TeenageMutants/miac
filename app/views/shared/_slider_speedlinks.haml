@@ -1,15 +1,10 @@
+
 .slider-inner
   %link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", :rel => "stylesheet"}
-
+  :css
+    .carousel-indicators li{ display:inline-block;width:10px;height:10px;margin:1px;text-indent:-999px;cursor:pointer;background-color:#000 \9;background-color:rgba(0,0,0,0);border:1px solid #fff;border-radius:10px; border-color: #3498db;}.carousel-indicators .active{width:12px;height:12px;margin:0;background-color:#3498db;}
   #meCarousel.carousel.slide.slider{"data-ride" => "carousel"}
     / Indicators
-    %ol.carousel-indicators
-      %li.rounded-x.active{"data-slide-to" => "0", "data-target" => "#meCarousel"}
-      %li.rounded-x{"data-slide-to" => "1", "data-target" => "#meCarousel"}
-      %li.rounded-x{"data-slide-to" => "2", "data-target" => "#meCarousel"}
-      %li.rounded-x{"data-slide-to" => "3", "data-target" => "#meCarousel"}
-
-
     / Wrapper for slides
     .carousel-inner{:role => "listbox"}
       .item.active
@@ -52,5 +47,10 @@
                   = link_to "#", class: "btn btn-primary" do
                     %i.fa.fa-medkit.fa-1x
                       Информация по ДЛО
+    .row
+      %ol.carousel-indicators{style: "bottom: 0px;"}
+        %li.rounded-x.active{"data-slide-to" => "0", "data-target" => "#meCarousel"}
+        %li.rounded-x{"data-slide-to" => "1", "data-target" => "#meCarousel"}
+        %li.rounded-x{"data-slide-to" => "2", "data-target" => "#meCarousel"}
 
   = render 'shared/map'
