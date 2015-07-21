@@ -68,7 +68,7 @@ gem 'passenger'
 gem "font-awesome-rails", '~> 4.3'
 
 #redactor and storage images
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 
 
