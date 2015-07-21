@@ -1,6 +1,8 @@
 !!!
 %html.js.cssanimations.csstransitions{:lang => "en"}
   %head
+    :javascript
+      var CKEDITOR_BASEPATH = '/assets/ckeditor/';
     %title Официальный сайт ГБУЗ КО МИАЦ Калужской области
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -18,8 +20,7 @@
     = javascript_include_tag  "http://htmlstream.com/preview/unify-v1.7/assets/plugins/back-to-top.js"
     = javascript_include_tag "http://htmlstream.com/preview/unify-v1.7/assets/js/plugins/owl-carousel.js"
     = javascript_include_tag "https://www.google.com/jsapi", "chartkick"
-    :javascript
-      var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+
 
   %body
     = render "shared/modal_sign_in"
