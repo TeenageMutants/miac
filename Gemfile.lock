@@ -356,7 +356,7 @@ DEPENDENCIES
   dragonfly
   factory_girl_rails
   ffi (= 1.4.0)
-  font-awesome-rails (~> 4.3)
+  font-awesome-rails
   guard-rspec
   haml
   haml-rails

@@ -10,7 +10,12 @@
 
         - else
           = link_to "#{current_user.email}",destroy_user_session_path, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите выйти из системы?' }
+      |
 
+      %li
+        = link_to "#", "data-target" => "#mednetModal", "data-toggle" => "modal" do
+          %i.fa.fa-user-secret
+          Вход в mednet
 
 
     %br

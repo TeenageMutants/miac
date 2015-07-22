@@ -65,7 +65,7 @@ gem 'russian'
 gem 'rails-i18n'
 gem 'ffi', '1.4.0'
 gem 'passenger'
-gem "font-awesome-rails", '~> 4.3'
+gem "font-awesome-rails"
 
 #redactor and storage images
 gem 'ckeditor', github: 'galetahub/ckeditor'

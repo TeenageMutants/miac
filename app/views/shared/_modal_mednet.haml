@@ -1,0 +1,21 @@
+#mednetModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{style: "margin-top: 200px; width:80%; z-index: 99999;"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#mednetModalLabel.modal-title Переход на корпоративный сайт учреждений здравоохранения Калужской области - "MEDNET"
+      .modal-body
+        %center
+          %p
+            %h3{style: "color: red;"}
+              Обращаем Ваше внимание, что доступ к корпоративному сайту учреждений здравоохранения Калужской области ОГРАНИЧЕН!!!
+        %p
+          %strong
+            Данная сеть создана в рамках исполнения приказа министерства здравоохранения Калужской области № 431 от 14 июня 2007 года "О подключении учреждений здравоохранения г. Калуги и Калужской области, к корпоративной сети "MEDNET"
+        %p
+          %strong
+            В случае возникновении проблемы при загрузке страницы после нажатия на кнопку "Перейти в защищенную сеть "MEDNET", необходимо обратится за консультациями по телефону 8 (4842) 72-58-06 доб 46.
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
+        = link_to 'Перейти в защищенную сеть "Mednet" ', 'http://10.2.1.248/', class: 'btn btn-primary'
