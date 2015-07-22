@@ -23,3 +23,5 @@ config/database.yml
 
 passenger.3000.pid
 
+.ruby-version
+.ruby-gemset
