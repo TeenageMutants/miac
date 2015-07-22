@@ -16,9 +16,12 @@
         %p
           %strong
             В случае возникновении проблемы при загрузке страницы после нажатия на кнопку "Перейти в защищенную сеть "MEDNET", необходимо обратится за консультациями по телефону 8 (4842) 72-58-06 доб 46.
+        %p{style: "font-size: 9px;"}
+          %i
+            *Для дальнейшей работы с закрытой системой будет взят Ваш ip адрес: #{request.remote_ip}
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
         - if request.remote_ip.to_s == '109.255.41.241'
-          = link_to 'Перейти в защищенную сеть "Mednet" ', 'http://10.0.3.101/', class: 'btn btn-primary'
+          = link_to 'Перейти в защищенную сеть "Mednet" ', 'http://10.0.3.101/', class: 'btn btn-primary', 'data-loading-text'=> "Осуществляется переход..."
         -else
-          = link_to 'Перейти в защищенную сеть "Mednet" ', 'http://10.2.1.248/users/sign_in', class: 'btn btn-primary'
+          = link_to 'Перейти в защищенную сеть "Mednet" ', 'http://10.2.1.248/users/sign_in', class: 'btn btn-primary','data-loading-text'=> "Осуществляется переход..."
