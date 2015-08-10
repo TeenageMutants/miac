@@ -7,7 +7,7 @@
 - unless articles.present?
   %center
     %h3
-      Данный раздел напоняется
+      Данный раздел находится в наполнении
 - else
   .row.high-rated.margin-bottom-20
     - tags = Article::TAGS.select {|k,v| k != 123}
