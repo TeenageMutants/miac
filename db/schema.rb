@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721075631) do
+ActiveRecord::Schema.define(version: 20151005112126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.integer  "question_id",                  null: false
-    t.boolean  "right_answer", default: false
-    t.text     "answer"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -35,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150721075631) do
     t.datetime "published_at"
     t.datetime "published_to"
     t.string   "vid_url",            limit: 255
-    t.string   "image_uid",          limit: 255
     t.integer  "user_id",                        null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -75,6 +64,27 @@ ActiveRecord::Schema.define(version: 20150721075631) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "comment_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "comment_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
+  add_index "comment_hierarchies", ["descendant_id"], name: "comment_desc_idx", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body",                   null: false
+    t.decimal  "post_id",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "ancestry",   limit: 255
+    t.integer  "user_id"
+    t.integer  "parent_id"
+  end
+
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string "name",  limit: 255,              null: false
@@ -120,18 +130,18 @@ ActiveRecord::Schema.define(version: 20150721075631) do
     t.string  "city_code",     limit: 255, null: false
     t.integer "key"
     t.integer "type_org_id"
-    t.string  "full_name"
-    t.string  "tag_ids"
-    t.string  "lsd_id"
-    t.string  "web_site"
+    t.string  "full_name",     limit: 255
+    t.string  "tag_ids",       limit: 255
+    t.string  "lsd_id",        limit: 255
+    t.string  "web_site",      limit: 255
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.text     "question",               null: false
-    t.integer  "types",      default: 0, null: false
+  create_table "posts", force: :cascade do |t|
+    t.string   "title",      limit: 255, null: false
+    t.text     "body",                   null: false
+    t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "ancestry"
   end
 
   create_table "redactor_assets", force: :cascade do |t|
@@ -174,20 +184,8 @@ ActiveRecord::Schema.define(version: 20150721075631) do
   end
 
   create_table "type_organizations", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
   end
-
-  create_table "user_answers", force: :cascade do |t|
-    t.integer  "question_id",  null: false
-    t.integer  "answer_id",    null: false
-    t.datetime "date_filling", null: false
-    t.string   "client_ip",    null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "user_answers", ["answer_id"], name: "index_user_answers_on_answer_id", using: :btree
-  add_index "user_answers", ["question_id"], name: "index_user_answers_on_question_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false

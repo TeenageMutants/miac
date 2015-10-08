@@ -20,24 +20,25 @@
                 - tags = Article::TAGS.select {|k,v| k != 6}
 
                 = f.select :tag, options_for_select((tags.map{ |h| [h[1][:name], h[0]]}), @article.types)
-            %tr
-              %th
-                Тип
-              %td
-                - types = Article::TYPES.select {|k,v| k != 6}
-
-                = f.select :types, options_for_select((types.map{ |h| [h[1][:name], h[0]]}), @article.types), {id: 'me'}, :onchange => 'r()'
-                :javascript
-                  function r() {
-                      var x = document.getElementById("article_types").value;
-
-
-                      if (x == 3) {
-                              document.getElementById("idd").style.display = 'block';
-                      }
-                      else{
-                              document.getElementById("idd").style.display = 'none';
-                  }}
+                = f.hidden_field :types, value: 0
+            -#%tr
+            -#  %th
+            -#    Тип
+            -#  %td
+            -#    - types = Article::TYPES.select {|k,v| k != 6}
+            -#
+            -#    = f.select :types, options_for_select((types.map{ |h| [h[1][:name], h[0]]}), @article.types), {id: 'me'}, :onchange => 'r()'
+            -#    :javascript
+            -#      function r() {
+            -#          var x = document.getElementById("article_types").value;
+            -#
+            -#
+            -#          if (x == 3) {
+            -#                  document.getElementById("idd").style.display = 'block';
+            -#          }
+            -#          else{
+            -#                  document.getElementById("idd").style.display = 'none';
+            -#      }}
             -#%tr
             -#  %th
             -#    Анннотация

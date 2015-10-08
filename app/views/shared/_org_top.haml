@@ -13,4 +13,4 @@
                         = w.name
                     - Organization.where(type_org_id: w.id).each do |r|
                       %li
-                        = link_to "#{r.name}", root_path
+                        = link_to "#{r.name}", info_organization_path(r.id)

@@ -8,7 +8,7 @@
     .blog-img
       -#%img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"}
       %center
-        -#= image_tag((@article.image.present? ? @article.image.url(:large) : "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"), class:"img-responsive")
+      -#= image_tag((@article.image.present? ? @article.image.url(:news) : "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"), class:"img-responsive")
     %h2
       %a{:href => "blog_item_option1.html"}
       = link_to "#{@article.title}", "#"
@@ -24,4 +24,10 @@
           %i.fa.fa-tags
           Медицина
     %p
-      = @article.body.html_safe
+      .col-md-12
+        = image_tag((@article.image.present? ? @article.image.url(:small) : "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"), class:"img-responsive", style: "float:left; margin: 0px 7px 0px 0px;")
+        = @article.body.html_safe
+      -#.blog-img
+      -#-#%img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"}
+      -#    %center
+      -#  = image_tag((@article.image.present? ? @article.image.url(:large) : "http://htmlstream.com/preview/unify-v1.7/assets/img/sliders/4.jpg"), class:"img-responsive")
