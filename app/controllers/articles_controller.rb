@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
       @articles = Article.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
     else
-      @articles = Article.order("created_at DESC").publics_to.publics_at.paginate(:page => params[:page], :per_page => 10)
+      @articles = Article.order("created_at DESC").publics.paginate(:page => params[:page], :per_page => 10)
     end
 
     if params[:method].present?

@@ -3,8 +3,8 @@
   .headline
     %h2.pull-left Новости
 
-- articles = Article.all
-- unless articles.present?
+
+- unless @articles.present?
   %center
     %h3
       Данный раздел находится в наполнении
@@ -29,7 +29,7 @@
               -i = -1
               - active_status = ["active","",""]
 
-              - articles.where(tag: @key).last(3).each do |article|
+              - @articles.where(tag: @key).last(3).each do |article|
                 -i+=1
                 .item{class: "#{active_status[i]}"}
                   -#%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
