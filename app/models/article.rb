@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
 	scope :types_4, -> { where(types: 4)}
 	scope :types_5, -> { where(types: 5)}
 	scope :publics_to, -> { where("published_to > ?",Date.today)}
-	scope :publics, -> {where('published_at <= ? and published_to > ? ', Date.today, Date.today)}
+	scope :publics, -> {where('published_at between ? and ?  and published_to > ? ', Date.parse('2014-01-01'), Date.today.end_of_day, Date.today.end_of_day)}
 	scope :publics_at,  -> { where("published_at between ? and ?",Date.today.beginning_of_day, Date.today.end_of_day)}
 	belongs_to :user
 	has_many :foto
