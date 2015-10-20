@@ -28,7 +28,56 @@
       %td
         = image_tag(@article.image.url(:thumb)) if @article.image.present?
         = f.file_field :image
+    %tr
+      %th
+        Выставить дату
+      %td
+        %input.check_pick{:name => "check_pick", :onchange => "valueChanged()", :type => "checkbox", :value => "1"}
+        :javascript
+                  $(".date_picker").hide();
+                  $(".check_pick").click(function() {
+                    if($(this).is(":checked")) {
+                      $(".date_picker").show();
+                    } else {
+                      $(".date_picker").hide();
+                    }
+                  });
 
+
+      %tr.date_picker{style: "display: none;"}
+        %td
+        %td
+
+          %link{:href => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+          %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+          %script{:src => "//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"}
+          .row
+            .form-group
+              .col-md-1
+                %center
+                  = f.label :at, "C"
+              .col-md-5
+                = f.text_field :published_at, id: "datetimepicker6", class: "form-control"
+              .col-md-1
+                по
+              .col-md-5
+                = f.text_field :published_to, id: "datetimepicker7", class: "form-control"
+
+          :javascript
+                  $(function () {
+                    $('#datetimepicker6').datetimepicker({
+                      locale: 'ru'
+                    });
+                    $('#datetimepicker7').datetimepicker({
+                      locale: 'ru'
+                    });
+                    $("#datetimepicker6").on("dp.change", function (e) {
+                        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                    });
+                    $("#datetimepicker7").on("dp.change", function (e) {
+                        //$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                    });
+                  });
     %tr
       %td
       %td
