@@ -64,6 +64,7 @@ gem 'devise'
 gem 'russian'
 gem 'rails-i18n'
 gem 'ffi', '1.4.0'
+gem 'cancan'
 gem 'passenger'
 gem "font-awesome-rails"
 
