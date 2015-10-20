@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
     if params[:commit].present?
-      @article.update_attributes(image: (params[:article][:image].present? ? params[:article][:image] : @article.image ),title: params[:article][:title], types: params[:article][:types], body: params[:article][:body], vid_url: (params[:article][:vid_url] unless params[:article][:vid_url].blank?), published_at:  params[:article][:published_at].present? ?  params[:article][:published_at] : @article.published_at, published_to: params[:article][:published_to].present? ?  params[:article][:published_to] : @article.published_to, user_id: current_user.id)
+      @article.update_attributes(image: (params[:article][:image].present? ? params[:article][:image] : @article.image ),title: params[:article][:title], types: params[:article][:types], body: params[:article][:body], vid_url: (params[:article][:vid_url] unless params[:article][:vid_url].blank?), published_at:  params[:article][:published_at].present? ?  params[:article][:published_at] : @article.published_at, published_to: params[:article][:published_to].present? ?  params[:article][:published_to] : @article.published_to, user_id: current_user.id, tag: params[:article][:tag].present? ? params[:article][:tag] : @article.tag )
       flash[:alert] = @article.errors.full_messages.join(", ")
       redirect_to articles_path, notice: "Запись успешно обновлена"
     end

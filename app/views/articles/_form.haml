@@ -14,13 +14,19 @@
         Заголовок
       %td
         = f.text_field :title,  placeholder: "Заголовок", class: 'form-control'
+    %tr
+      %th
+        ТЕГИ
+      %td
+        - tags = Article::TAGS.select {|k,v| k != 6}
 
+        = f.select :tag, options_for_select((tags.map{ |h| [h[1][:name], h[0]]}), @article.tag)
+        = f.hidden_field :types, value: 0
     %tr
       %th
         Текст
       %td
-        -#= f.text_area :body, class: "redactor", :rows => 40, :cols => 120
-        = f.cktext_area :body, :cols => 80, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
+        = f.cktext_area :body
 
     %tr
       %th
@@ -64,22 +70,27 @@
                 = f.text_field :published_to, id: "datetimepicker7", class: "form-control"
 
           :javascript
-                  $(function () {
-                    $('#datetimepicker6').datetimepicker({
-                      locale: 'ru'
-                    });
-                    $('#datetimepicker7').datetimepicker({
-                      locale: 'ru'
-                    });
-                    $("#datetimepicker6").on("dp.change", function (e) {
-                        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-                    });
-                    $("#datetimepicker7").on("dp.change", function (e) {
-                        //$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-                    });
-                  });
+            $(function () {
+
+              //$('.ckeditor').ckeditor({
+              //  // optional config
+              //});
+              $('#datetimepicker6').datetimepicker({
+                locale: 'ru'
+              });
+              $('#datetimepicker7').datetimepicker({
+                locale: 'ru'
+              });
+              $("#datetimepicker6").on("dp.change", function (e) {
+                  $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+              });
+              $("#datetimepicker7").on("dp.change", function (e) {
+                  //$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+              });
+            });
     %tr
       %td
       %td
         .pull-right
+          = link_to "Отмена",  articles_path, class: "btn btn-default", data: {confirm: "Вы уверены?"}
           = f.submit "Изменить", :class => "btn btn-primary", :disable_with => "Ждите"

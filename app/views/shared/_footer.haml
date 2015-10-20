@@ -14,7 +14,7 @@
             .headline
               %h2 Последние новости
             %ul.list-unstyled.latest-list
-              - articles = Article.order("created_at DESC").publics_to.publics_at.limit(3)
+              - articles = Article.order("created_at DESC").publics.limit(3)
               - unless articles.present?
                 %li
                   %a{:href => "#"} Данный раздел находится в наполнении

@@ -21,9 +21,9 @@
 //= require jquery-migrate.min
 //= require_tree .
 
-$('.ckeditor').ckeditor({
-    // optional config
-});
+//$('.ckeditor').ckeditor({
+//    // optional config
+//});
 
 $('.tooltips').tooltip();
 $('.tooltips-show').tooltip('show');      
