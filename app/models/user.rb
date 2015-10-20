@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   belongs_to :role
 
+
   def self.local_ip
     orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
 

@@ -7,64 +7,30 @@
 -#  \#{cktext_area :page, :body, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}}
 -#  \...
 
-= form_for @article, :url => {  action: "create"}  do |f|
+= form_for @article, :url => {  action: "edit"}, method: "post"  do |f|
   %table.table
     %tr
       %th
         Заголовок
       %td
         = f.text_field :title,  placeholder: "Заголовок", class: 'form-control'
-    %tr
-      %th
-        Тип
-      %td
-        - aaa = Article::TYPES.select {|k,v| k != 6}
 
-        = f.select :types, options_for_select((aaa.map{ |h| [h[1][:name], h[0]]}), @article.types), {id: 'me'}, :onchange => 'r()'
-        :javascript
-          function r() {
-              var x = document.getElementById("article_types").value;
-
-              if (x == 3) {
-                      document.getElementById("idd").style.display = 'block';
-              }
-              else{
-                      document.getElementById("idd").style.display = 'none';
-          }}
-    %tr
-      %th
-        Анннотация
-      %td
-        -#= f.text_area :preview, class: "redactor"
-        = f.cktext_area :preview, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
     %tr
       %th
         Текст
       %td
         -#= f.text_area :body, class: "redactor", :rows => 40, :cols => 120
-        = f.cktext_area :body, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
+        = f.cktext_area :body, :cols => 80, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}
 
     %tr
       %th
         Изображение
       %td
+        = image_tag(@article.image.url(:thumb)) if @article.image.present?
+        = f.file_field :image
 
-        -#= image_tag(@article.image.url(:thumb)) unless request.path == new_article_path
-        -#= f.file_field :image
-    %tr
-      %th
-        Ссылка на видео
-      %td
-        =  f.text_field :vid_url
-    %tr
-      %td
-      %td
-        #idd
-          .form-group
-            %label{:for => "exampleInputFile"} Загрузка файла
-            = f.file_field :file, class: "#exampleInputFile",:type => "file"
     %tr
       %td
       %td
         .pull-right
-          = f.submit (request.path == new_article_path ? "Создать" : "Изменить"), :class => "btn btn-primary", :disable_with => "Ждите"
+          = f.submit "Изменить", :class => "btn btn-primary", :disable_with => "Ждите"

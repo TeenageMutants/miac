@@ -15,12 +15,13 @@ Rails.application.routes.draw do
   resources :articles, :only =>  [:index, :show, :create, :new]  do
     collection do
       # get 'news'
+
       get 'docs'
      
     end
     member do
       get 'edit'
-      put 'edit'
+      post 'edit'
       get 'full_page'
     end
   end

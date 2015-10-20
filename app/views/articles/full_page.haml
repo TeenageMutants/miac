@@ -16,7 +16,7 @@
       %ul.list-unstyled.list-inline.blog-info
         %li
           %i.fa.fa-calendar
-          = I18n.l @article.published_at, format: "%a, %d %b %Y, %H:%M"
+          = @article.published_at.present? ? (I18n.l @article.published_at, format: "%a, %d %b %Y, %H:%M") : "Неопубликован"
         -#%li
         -#  %i.fa.fa-pencil
         -#  Diana Anderson
