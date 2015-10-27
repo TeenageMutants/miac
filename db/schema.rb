@@ -11,42 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005112126) do
+ActiveRecord::Schema.define(version: 20151027065600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",              limit: 255
+    t.string   "title"
     t.integer  "types"
-    t.string   "location",           limit: 255
     t.text     "preview"
     t.text     "body"
     t.datetime "published_at"
     t.datetime "published_to"
-    t.string   "vid_url",            limit: 255
-    t.integer  "user_id",                        null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
+    t.string   "vid_url"
+    t.string   "tag"
+    t.integer  "user_id",            null: false
+    t.string   "name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "tag"
   end
 
-  create_table "blocks", force: :cascade do |t|
-    t.integer  "user_id",                                       null: false
-    t.string   "reason",       limit: 255, default: "Blocked."
-    t.datetime "blocked_at"
-    t.datetime "unblocked_at"
-  end
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
-    t.string "lsd_ids",  limit: 255,                     null: false
-    t.string "map_id",   limit: 255,                     null: false
-    t.string "name",     limit: 255, default: "Город"
-    t.string "district", limit: 255, default: "Область"
+    t.string "name"
+    t.string "district"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -65,118 +58,21 @@ ActiveRecord::Schema.define(version: 20151005112126) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
-  create_table "comment_hierarchies", id: false, force: :cascade do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-  end
-
-  add_index "comment_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
-  add_index "comment_hierarchies", ["descendant_id"], name: "comment_desc_idx", using: :btree
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "body",                   null: false
-    t.decimal  "post_id",                null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "ancestry",   limit: 255
-    t.integer  "user_id"
-    t.integer  "parent_id"
-  end
-
-  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
-
-  create_table "departments", force: :cascade do |t|
-    t.string "name",  limit: 255,              null: false
-    t.string "desc",  limit: 255, default: ""
-    t.string "phone", limit: 255, default: ""
-  end
-
-  create_table "info_desks", force: :cascade do |t|
-    t.integer  "user_id",                     null: false
-    t.string   "contact_tel",     limit: 255, null: false
-    t.string   "contact_email",   limit: 255, null: false
-    t.string   "private_tel",     limit: 255
-    t.string   "private_email",   limit: 255
-    t.string   "position",        limit: 255, null: false
-    t.integer  "organization_id",             null: false
-    t.integer  "department_id",               null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  create_table "map_data", force: :cascade do |t|
-    t.integer  "city_id",             null: false
-    t.datetime "date"
-    t.integer  "primary_dr_ticket"
-    t.integer  "secondary_dr_ticket"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "organizations", force: :cascade do |t|
-    t.string  "address",       limit: 255, null: false
-    t.integer "city_id",                   null: false
-    t.string  "name",          limit: 255, null: false
+    t.string  "address"
+    t.integer "city_id"
+    t.string  "name"
     t.text    "description"
-    t.string  "logo",          limit: 255
-    t.string  "tel_secretary", limit: 255
-    t.string  "fax",           limit: 255
-    t.string  "city_code",     limit: 255, null: false
+    t.string  "logo"
+    t.string  "tel_secretary"
+    t.string  "fax"
+    t.string  "city_code"
     t.integer "key"
     t.integer "type_org_id"
-    t.string  "full_name",     limit: 255
-    t.string  "tag_ids",       limit: 255
-    t.string  "lsd_id",        limit: 255
-    t.string  "web_site",      limit: 255
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "title",      limit: 255, null: false
-    t.text     "body",                   null: false
-    t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "redactor_assets", force: :cascade do |t|
-    t.string   "data_file_name",    limit: 255, null: false
-    t.string   "data_content_type", limit: 255
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    limit: 30
-    t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable", using: :btree
-  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type", using: :btree
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
-
-  create_table "statistics", force: :cascade do |t|
-    t.integer  "organization_id"
-    t.integer  "primary_reception"
-    t.integer  "finished_reception"
-    t.datetime "date"
+    t.string  "full_name"
+    t.string  "tag_ids"
+    t.string  "lsd_id"
+    t.string  "web_site"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -184,36 +80,31 @@ ActiveRecord::Schema.define(version: 20151005112126) do
   end
 
   create_table "type_organizations", force: :cascade do |t|
-    t.string "name", limit: 255, null: false
+    t.string "name", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",    null: false
-    t.string   "encrypted_password",     limit: 255, default: "",    null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "username",               limit: 255
-    t.boolean  "admin",                              default: false
-    t.boolean  "moderator",                          default: false
-    t.boolean  "boolean",                            default: false
-    t.string   "fio",                    limit: 255
-    t.string   "hospital",               limit: 255
-    t.boolean  "blocks",                             default: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-    t.string   "ancestry",               limit: 255
-    t.boolean  "top_manager",                        default: false
-    t.boolean  "middle_person",                      default: false
-    t.integer  "role_id",                            default: 4
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "username"
+    t.boolean  "admin",                  default: false
+    t.boolean  "moderator",              default: false
+    t.boolean  "boolean",                default: false
+    t.string   "fio"
+    t.string   "hospital"
+    t.boolean  "blocks",                 default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["ancestry"], name: "index_users_on_ancestry", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

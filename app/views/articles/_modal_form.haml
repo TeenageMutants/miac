@@ -107,13 +107,7 @@
             -#  %th
             -#    Ссылка на видео
             -#  %td= f.text_field :vid_url
-            %tr
-              %td
-              %td
-                #idd
-                  .form-group
-                    %label{:for => "exampleInputFile"} Загрузка файла
-                    = f.file_field :file, class: "#exampleInputFile",:type => "file"
+            
 
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
