@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'main#index'
   get 'about' => "main#about"
   get 'test' => 'main#test'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
       get 'info'
     end
   end
+
 
   resources :articles, :only =>  [:index, :show, :create, :new]  do
     collection do
@@ -29,8 +31,8 @@ Rails.application.routes.draw do
   resources :statistics, :only =>  [:index]  do
 
   end
-  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
+  mount Ckeditor::Engine => '/ckeditor'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
