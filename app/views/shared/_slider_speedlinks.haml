@@ -7,20 +7,20 @@
     / Indicators
     / Wrapper for slides
     .carousel-inner{:role => "listbox"}
+      -#.item.active
+      -#  .purchase
+      -#    .container
+      -#      .row
+      -#        .col-md-2
+      -#          = image_tag("cl/gerb_rf.png", style: "width: 120px;")
+      -#        .col-md-8
+      -#          %center
+      -#            %h3
+      -#              Независимая оценка качества оказания услуг медицинскими организациями
+      -#            = link_to "УЧАСТВОВАТЬ В ГОЛОСОВАНИИ", "https://www.rosminzdrav.ru/polls/9-anketa-dlya-otsenki-kachestva-okazaniya-uslug-meditsinskimi-organizatsiyami-v-ambulatornyh-usloviyah?region_code=KLU", class: 'btn btn-primary btn-lg'
+      -#        .col-md-2
+      -#          = image_tag("cl/5.png", style: "width: 120px;")
       .item.active
-        .purchase
-          .container
-            .row
-              .col-md-2
-                = image_tag("cl/gerb_rf.png", style: "width: 120px;")
-              .col-md-8
-                %center
-                  %h3
-                    Независимая оценка качества оказания услуг медицинскими организациями
-                  = link_to "УЧАСТВОВАТЬ В ГОЛОСОВАНИИ", "https://www.rosminzdrav.ru/polls/9-anketa-dlya-otsenki-kachestva-okazaniya-uslug-meditsinskimi-organizatsiyami-v-ambulatornyh-usloviyah?region_code=KLU", class: 'btn btn-primary btn-lg'
-              .col-md-2
-                = image_tag("cl/5.png", style: "width: 120px;")
-      .item
         .purchase
           .container
             .row
@@ -65,6 +65,6 @@
         %li.rounded-x.active{"data-slide-to" => "0", "data-target" => "#meCarousel"}
         %li.rounded-x{"data-slide-to" => "1", "data-target" => "#meCarousel"}
         %li.rounded-x{"data-slide-to" => "2", "data-target" => "#meCarousel"}
-        %li.rounded-x{"data-slide-to" => "3", "data-target" => "#meCarousel"}
+        -#%li.rounded-x{"data-slide-to" => "3", "data-target" => "#meCarousel"}
 
   = render 'shared/map'

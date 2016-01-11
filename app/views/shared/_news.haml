@@ -20,19 +20,17 @@
             = value[:name]
             - @key = key
           #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
-            %ol.carousel-indicators
-              %li.rounded-x{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-              %li.rounded-x{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-              %li.rounded-x.active{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
             .carousel-inner
 
               -i = -1
               - active_status = ["active","",""]
-
               - @articles.where(tag: @key).last(3).each do |article|
                 -i+=1
                 .item{class: "#{active_status[i]}"}
-                  -#%img{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}
+                  -#%ol.carousel-indicators
+                  -#  %li.rounded-x{"data-slide-to" => article.id, "data-target" => "#carousel-example-generic"}
+                  -#  %li.rounded-x{"data-slide-to" => article.id, "data-target" => "#carousel-example-generic"}
+                  -#  %li.rounded-x.active{"data-slide-to" => article.id, "data-target" => "#carousel-example-generic"}
                   = image_tag((article.image.present? ? article.image.url(:news) : "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"), class: "img-responsive", style: "width:260px;")
                   .col-md-12
                     %p
@@ -47,6 +45,8 @@
                   .row
                     .col-md-12
                       = link_to "Читать больше", full_page_article_path(id: article.id), class: "btn-u btn-u-sm"
+
+
 
 
 

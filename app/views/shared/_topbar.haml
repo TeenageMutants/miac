@@ -65,20 +65,22 @@
                 = link_to "Графики", statistics_path
               %li
                 = link_to "Онлайн библиотека", statistics_path
-          %li.dropdown{class: request.path == projects_path ? "active": "" }
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-              Проекты
-            %ul.dropdown-menu
-              %li
-                = link_to "Телемедицина", projects_path
-              %li
-                = link_to "РМИС", projects_path
-              %li
-                = link_to "ДЛО", projects_path
-              %li
-                = link_to "Скрининг ВПЧ", projects_path
-              %li
-                = link_to "Оценка качества", root_path
+
+
+          -#%li.dropdown{class: request.path == projects_path ? "active": "" }
+          -#  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+          -#    Проекты
+          -#  %ul.dropdown-menu
+          -#    %li
+          -#      = link_to "Телемедицина", projects_path
+          -#    %li
+          -#      = link_to "РМИС", projects_path
+          -#    %li
+          -#      = link_to "ДЛО", projects_path
+          -#    %li
+          -#      = link_to "Скрининг ВПЧ", projects_path
+          -#    %li
+          -#      = link_to "Оценка качества", root_path
 
           - if TypeOrganization.present?
             %li.dropdown.mega-menu-fullwidth
@@ -86,17 +88,9 @@
                 Учреждения
               = render 'shared/org_top'
 
-          %li.dropdown{class: request.path == service_path ? "active": "" }
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
-              Услуги
-            %ul.dropdown-menu
-              %li
-                = link_to "Настройка серверного оборудования", service_path
-              %li
-                = link_to "Проектировка сети", service_path
-              %li
-                = link_to "Разработка сайтов", service_path
-              %li
-                = link_to "Обучение", service_path
+          %li{class: request.path == projects_path ? "active": "" }
+            = link_to "Проекты", projects_path
+          %li{class: request.path == service_path ? "active": "" }
+            = link_to "Услуги", service_path
           %li{class: request.path == about_path ? "active": "" }
             = link_to "О нас", about_path

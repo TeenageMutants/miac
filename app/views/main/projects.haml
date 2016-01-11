@@ -1,1 +1,143 @@
-= render 'shared/under_construction'
+-#= render 'shared/under_construction'
+
+/ === Content Part ===
+.container.content
+  .row
+    .col-md-6
+      %h2.title-v2 НАШИ ПРОЕКТЫ
+      %p Один из главных проектов на котором базируются все остальные проекты это наш закрытый портал "MEDNET".
+      %p Портал "MEDNET" был основан еще в далеком 2007 году, но относительно недавно около #{Date.today.year - Date.parse("01-10-2014").year} лет назад. Нам пришла в голову идея создать не просто информационный портал, а некий проект позволяющию облегчить и помочь системе медицинского обслуживания. Данный проект состоит из модулей, которое мы увеличиваем по сей день.
+      = link_to "Дополнительно", "#", class: "btn-u btn-brd btn-brd-hover"
+    .col-md-6
+      = image_tag("projects/mockup1.png", class: "img-responsive")
+.parallax-counter-v2.parallaxBg1{:style => "background-position: 50% 222px;"}
+  .container.content-sm
+    .text-center.margin-bottom-50
+      %h2.title-v2.title-center Модули в портале "MEDNET"
+      %p.space-lg-hor
+        Наши модули, которые используют сострудники медицинских учреждений Калужской области.
+
+    .row.content-boxes-v4.content-boxes-v4-sm.margin-bottom-30
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-directions
+        .content-boxes-in-v4
+          %h2 Форум
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-handbag
+        .content-boxes-in-v4
+          %h2 Техническая поддержка (Help Desk)
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4
+        %i.pull-left.icon-chemistry
+        .content-boxes-in-v4
+          %h2 Банк документов
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+    %hr/
+    .row.content-boxes-v4.content-boxes-v4-sm.margin-bottom-30
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-info.margin-right-10
+        .content-boxes-in-v4
+          %h2 Оценка качества
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-social-youtube.margin-right-10
+        .content-boxes-in-v4
+          %h2 ВПЧ-скрининг
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4
+        %i.pull-left.icon-fire.margin-right-10
+        .content-boxes-in-v4
+          %h2 Детское питание
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+    %hr/
+    .row.content-boxes-v4.content-boxes-v4-sm
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-layers
+        .content-boxes-in-v4
+          %h2 Реабилитация инвалидов
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4.md-margin-bottom-40
+        %i.pull-left.icon-rocket
+        .content-boxes-in-v4
+          %h2 Парк техники
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+      .col-md-4
+        %i.pull-left.icon-support
+        .content-boxes-in-v4
+          %h2 Календарь задач
+          %p It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          %a{:href => "#"} Learn More
+/ === End Service Blocks ===
+/ === Parallax Counter ===
+.bg-grey
+  .container.content-sm
+    .text-center.margin-bottom-50
+      %h2.title-v2.title-center Проекты в которых мы активно принимаем участие
+      %p.space-lg-hor
+        If you are going to use a
+        = succeed "," do
+          %span.color-green passage of Lorem Ipsum
+        %span.color-green this the first
+        true generator on the Internet.
+    .row.news-v1
+      .col-md-4.md-margin-bottom-40
+        .news-v1-in.bg-color-white
+          %img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img12.jpg"}/
+          %h3.font-normal
+            %a{:href => "#"} Телемедецина
+          %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]
+          %ul.list-inline.news-v1-info.no-margin-bottom
+            -#%li
+            -#  %span By
+            -#  %a{:href => "#"} Kathy Reyes
+            -#%li |
+            -#%li
+            -#  %i.fa.fa-clock-o
+            -#  July 02, 2014
+            -#%li.pull-right
+            -#  %a{:href => "#"}
+            -#    %i.fa.fa-comments-o
+            -#    14
+      .col-md-4.md-margin-bottom-40
+        .news-v1-in.bg-color-white
+          %img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img3.jpg"}/
+          %h3.font-normal
+            %a{:href => "#"} ДЛО
+          %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]
+          %ul.list-inline.news-v1-info.no-margin-bottom
+      .col-md-4
+        .news-v1-in.bg-color-white
+          %img.img-responsive{:alt => "", :src => "http://htmlstream.com/preview/unify-v1.7/assets/img/main/img16.jpg"}/
+          %h3.font-normal
+            %a{:href => "#"} РМИС
+          %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores [..]
+          %ul.list-inline.news-v1-info.no-margin-bottom
+
+.parallax-counter-v2.parallaxBg1{:style => "background-position: 50% 222px;"}
+  .container
+    %ul.row.list-row
+      %li.col-md-3.col-sm-6.col-xs-12.md-margin-bottom-30
+        .counters.rounded
+          %span.counter 5
+          %h4.font-normal Web Developers
+      %li.col-md-3.col-sm-6.col-xs-12.md-margin-bottom-30
+        .counters.rounded
+          %span.counter 2
+          %h4.font-normal Designers
+      %li.col-md-3.col-sm-6.col-xs-12.sm-margin-bottom-30
+        .counters.rounded
+          %span.counter 37904
+          %h4.font-normal Open Contests
+      %li.col-md-3.col-sm-6.col-xs-12
+        .counters.rounded
+          %span.counter 50892
+          %h4.font-normal Happy Customors

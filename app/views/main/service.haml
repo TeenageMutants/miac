@@ -1,3 +1,206 @@
-.container
-  %center
-    = image_tag("http://afpoligraf.ru/content/32/1/under.jpg", style:'width: 50%;')
+-#.container
+-#  %center
+-#    = image_tag("http://afpoligraf.ru/content/32/1/under.jpg", style:'width: 50%;')
+
+.wrapper
+  / === Header ===
+  / === Breadcrumbs v2 ===
+  .breadcrumbs-v2.faq-breadcrumb.margin-bottom-20
+    .breadcrumbs-v2-in
+      %h1 Наши услуги
+      -#%ul.breadcrumb-v2.list-inline
+      -#  %li
+      -#    %a{:href => "index.html"}
+      -#      %i.rounded-x.fa.fa-angle-right>
+      -#      Home
+      -#  %li
+      -#    %a{:href => ""}
+      -#      %i.rounded-x.fa.fa-angle-right>
+      -#      Page
+      -#  %li.active
+      -#    %i.rounded-x.fa.fa-angle-right>
+      -#    F.A.Q
+
+  .container.content.faq-page
+    / FAQ Blocks
+    -#.row.equal-height-columns.margin-bottom-40
+    -#  .col-sm-4
+    -#    .easy-block-v3.service-or.equal-height-column{:style => "height: 160px;"}
+    -#      .service-bg
+    -#      %i.icon-badge
+    -#      .inner-faq-b
+    -#        %h3 What is Unify Template?
+    -#        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.
+    -#  .col-sm-4
+    -#    .easy-block-v3.service-or.equal-height-column{:style => "height: 160px;"}
+    -#      .service-bg
+    -#      %i.icon-directions
+    -#      .inner-faq-b
+    -#        %h3 How to Update Unify?
+    -#        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.
+    -#  .col-sm-4
+    -#    .easy-block-v3.service-or.equal-height-column{:style => "height: 160px;"}
+    -#      .service-bg
+    -#      %i.icon-layers
+    -#      .inner-faq-b
+    -#        %h3 The Features of Unify?
+    -#        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dapibus justo vel tincidunt consectetur.
+    / End FAQ Blocks
+    / FAQ Content
+    .row
+      / Begin Tab v1
+      .col-md-12
+        .tab-v1
+          %ul.nav.nav-tabs.margin-bottom-20
+            %li.active
+              %a{"data-toggle" => "tab", :href => "#servers"} Сервера
+            %li
+              %a{"data-toggle" => "tab", :href => "#network"} Сети
+            %li
+              %a{"data-toggle" => "tab", :href => "#development"} Разработка ПО
+            %li
+              %a{"data-toggle" => "tab", :href => "#learn"} Обучение
+            %li
+              %a{"data-toggle" => "tab", :href => "#consultation"} Консультирование
+            %li
+              %a{"data-toggle" => "tab", :href => "#typography"} Услуги типографии
+            %li
+              %a{"data-toggle" => "tab", :href => "#congerence"} Видеоконференции
+            %li
+              %a{"data-toggle" => "tab", :href => "#support"} Техническое сопровождение
+            -#%li
+            -#  %a{"data-toggle" => "tab", :href => "#settings"} Сертификая
+            -#%li
+            -#  %a{"data-toggle" => "tab", :href => "#settings"} Аттестация
+          = render 'shared/tab_content'
+      / Tab Content 4
+      / /col-md-6
+      / End Tab v1
+      / Popular Topics
+      -#.col-md-6
+      -#  .headline
+      -#    %h2 Popular Topics
+      -#  .row.main-check.margin-bottom-30
+      -#    .col-xs-6.md-margin-bottom-20
+      -#      %ul.list-unstyled.check-style
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How does encryption work?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Is Unify Template legal?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Can I download Unify multiple times?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How to Update Unify Template?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How does encryption work?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Is Unify Template legal?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Can I download Unify multiple times?
+      -#    .col-xs-6
+      -#      %ul.list-unstyled.check-style
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How does encryption work?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Is Unify Template legal?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Can I download Unify multiple times?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How to Update Unify Template?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} How does encryption work?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Is Unify Template legal?
+      -#        %li
+      -#          %i.fa.fa-angle-right.color-green
+      -#          %a{:href => "#"} Can I download Unify multiple times?
+      -#  %hr/
+      -#  .row
+      -#    .col-md-6
+      -#      .faq-add
+      -#        .top-part
+      -#          %i.icon-support
+      -#          %h3.new-title
+      -#            %a{:href => "#"} Online Support
+      -#        %p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid
+      -#    .col-md-6
+      -#      .faq-add
+      -#        .top-part
+      -#          %i.icon-lock
+      -#          %h3.new-title
+      -#            %a{:href => "#"} Security & Privacy
+      -#        %p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid
+  / /col-md-6
+  / End Popular Topics
+  / End FAQ Content
+  / /container
+  / === End FAQ Page ===
+  / === Service Info ===
+  .parallax-counter-v2.parallaxBg1{:style => "background-position: 50% 222px;"}
+    .service-info
+      .container
+        .headline-center-v2.headline-center-v2-dark.margin-bottom-10
+          %h2 Features
+          %span.bordered-icon
+            %i.fa.fa-th-large
+        .row
+          .col-md-6
+            .margin-bottom-30
+              %i.service-info-icon.rounded-x.icon-wrench
+              .info-description
+                %h3.title-v3-md.text-uppercase HTML5 + CSS3
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id nisi augue. Maecenas eu risus ex. Pellentesque laoreet eros at erat lacinia tempus.
+            .margin-bottom-30
+              %i.service-info-icon.rounded-x.icon-power
+              .info-description
+                %h3.title-v3-md.text-uppercase Launch Ready
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id nisi augue. Maecenas eu risus ex. Pellentesque laoreet eros at erat lacinia tempus.
+            .md-margin-bottom-30
+              %i.service-info-icon.rounded-x.icon-bell
+              .info-description
+                %h3.title-v3-md.text-uppercase Fully Responsive
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id nisi augue. Maecenas eu risus ex. Pellentesque laoreet eros at erat lacinia tempus.
+          .col-md-6
+            .responsive-video
+              %iframe{:allowfullscreen => "", :frameborder => "0", :mozallowfullscreen => "", :src => "//player.vimeo.com/video/78451097?title=0&byline=0&portrait=0&badge=0", :webkitallowfullscreen => ""}
+    / /row
+    / /container
+    / === End Service Info ===
+    / === FAQ Content ===
+    .container.content-sm
+      .row.equal-height-columns.margin-bottom-40
+        .col-sm-4.no-space
+          .easy-block-v3.equal-height-column.first{:style => "height: 167px;"}
+            %i.fa.fa-headphones
+            .inner-faq-b
+              %h3 Contact Us
+              %h4 1(123) 456
+              %p Sed rutrum risus non massa sodales varius. Etiam aliquet tincidunt sapien, nec iaculis eros.
+        .col-sm-4.no-space
+          .easy-block-v3.equal-height-column.second{:style => "height: 167px;"}
+            %i.icon-cursor
+            .inner-faq-b
+              %h3 Email Us
+              %h4 info@anybiz.com
+              %p Sed rutrum risus non massa sodales varius. Etiam aliquet tincidunt sapien, nec iaculis eros.
+        .col-sm-4.no-space
+          .easy-block-v3.equal-height-column.third{:style => "height: 167px;"}
+            %i.icon-support
+            .inner-faq-b
+              %h3 Support
+              %h4 Technical Support
+              %p Sed rutrum risus non massa sodales varius. Etiam aliquet tincidunt sapien, nec iaculis eros.
+
