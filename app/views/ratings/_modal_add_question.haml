@@ -1,0 +1,19 @@
+#modal_add_question.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{style: "margin-top: 100px; width:50%; z-index: 999999;"}
+    = form_tag({action: "add_question"}, method: :get) do
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#myModalLabel.modal-title
+            Добавление вопроса
+        .modal-body
+          =hidden_field_tag :rating_form_id, params[:id]
+          %table.table
+            %tr
+              %td= text_field_tag :body, params[:body], class: "form-control", placeholder: "Текст вопроса"
+            %tr
+              %td= text_area_tag :answers, params[:answers], class: "form-control", placeholder: "Введите варианты ответа, разделяя каждый символом '/'"
+        .modal-footer
+          %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
+          = submit_tag "Сохранить", class: "btn btn-primary"

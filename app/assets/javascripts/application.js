@@ -19,6 +19,8 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require jquery-migrate.min
+//= require best_in_place
+//= require jquery-ui
 //= require_tree .
 
 //$('.ckeditor').ckeditor({

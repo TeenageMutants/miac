@@ -1,0 +1,39 @@
+-# тип
+-# поликлиника 1
+-# стационар 2
+= form_tag(request.path, method: :post) do
+  %table.table
+    %tr
+      %td= select_tag :organization_id, options_from_collection_for_select(Organization.all, "id", "name"), prompt: (params[:organization_id].present?  ?   Organization.find(params[:organization_id]).name : "Выберите организацию"), class: "form-control"
+
+  - if request.path == add_hospital_ratings_path
+    - type = 2
+  - elsif request.path == add_ambul_ratings_path
+    - type = 1
+  = hidden_field_tag :type_id, type
+  - @questions.each do |question|
+    -#= hidden_field_tag :question_id, question.id
+    %tr
+      %td= question.body
+      %td
+        %table.table
+          - RatingAnswer.where(rating_question_id: question.id).each do |answer|
+            -#= hidden_field_tag :answer_id, answer.id
+            %tr
+              %td
+                =radio_button("sum" , question.id, answer.id)
+                =label_tag "sum_#{question.id}_#{answer.id}", answer.body
+  %centre
+    = link_to "Отмена",ratings_path, class: "btn btn-default"
+    = submit_tag "Сохранить", class: "btn btn-primary", id: "commit"
+
+:javascript
+  var $selectElem = $("#organization_id");
+  function validateSelect() {
+    if ($selectElem.prop("selectedIndex") === 0) {
+      alert ("Пожалуйста, выберите организацию.");
+      return false;
+    }
+  }
+  $selectElem.on("change", validateSelect);
+  $("#commit").on("click", validateSelect);

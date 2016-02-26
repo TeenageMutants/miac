@@ -1,0 +1,18 @@
+#modal_add_form.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{style: "margin-top: 100px; width:50%; z-index: 999999;"}
+    = form_tag({action: "add_form"}, method: :get) do
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#myModalLabel.modal-title
+            Добавление анкеты
+        .modal-body
+          %table.table
+            %tr
+              %td= text_field_tag :name, params[:name], class: "form-control", placeholder: "Текст вопроса"
+            %tr
+              %td= select_tag :type_id, options_for_select([['Амбулатория', 1], ['Стационар', 2]]), class: "form-control", prompt: "Выберите тип"
+        .modal-footer
+          %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Закрыть
+          = submit_tag "Сохранить", class: "btn btn-primary"

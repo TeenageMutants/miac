@@ -1,0 +1,43 @@
+-#.wrapper
+-#  .breadcrumbs-v2.faq-breadcrumb.margin-bottom-20
+-#    .breadcrumbs-v2-in
+-#      %h1 Оценка качества обслуживания в медицинских организациях
+-#      -#= link_to "Оценка качества обслуживания в медицинских организациях", "#"
+=render 'head'
+.container.content.faq-page
+  / FAQ Blocks
+  .row.equal-height-columns.margin-bottom-40
+    .col-sm-4
+      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+        .service-bg
+        %i.icon-badge
+        .inner-faq-b
+          %h3
+            = link_to "Стационар", add_hospital_ratings_path
+            -#Стационар
+    .col-sm-4
+      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+        .service-bg
+        %i.icon-directions
+        .inner-faq-b
+          %h3
+            = link_to "Амбулатория", add_ambul_ratings_path
+            -#Амбулатория
+    -if true
+      .col-sm-4
+      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+        .service-bg
+        %i.icon-directions
+        .inner-faq-b
+          %h3
+            = link_to "Анкеты", list_ratings_path
+  .row
+    / Begin Tab v1
+    -#.col-md-12
+    -#  .tab-v1
+    -#    %ul.nav.nav-tabs.margin-bottom-20
+    -#      %li.active
+    -#        %a{"data-toggle" => "tab", :href => "#servers"} Сервера
+    -#      %li
+    -#        %a{"data-toggle" => "tab", :href => "#network"} Сети
+        = render 'shared/tab_content'

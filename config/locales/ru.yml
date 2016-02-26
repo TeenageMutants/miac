@@ -252,6 +252,23 @@ ru:
   activemodel:
     errors:
       <<: *errors
+#  activerecord:
+#    errors:
+#      <<: *errors
   activerecord:
     errors:
-      <<: *errors
+      models:
+        rating_form:
+          attributes:
+            name:
+              blank: "Пожалуйста, введите название!"
+            type_id:
+              blank: "Пожалуйста, выберите тип!"
+        rating_question:
+          attributes:
+            body:
+              blank: "Пожалуйста, введите вопрос!"
+        rating_answer:
+          attributes:
+            body:
+              blank: "Пожалуйста, введите ответ!"
