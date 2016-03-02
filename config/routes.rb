@@ -37,11 +37,8 @@ Rails.application.routes.draw do
   resources :events
 
 
-  resources :todolists, shallow: true do
-    collection do
-      get 'detail_todolist'
-    end
-  end
+  resources :todolists
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
