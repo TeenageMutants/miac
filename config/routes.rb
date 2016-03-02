@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+
   root 'main#index'
   get 'about' => "main#about"
   get 'test' => 'main#test'
@@ -28,12 +29,37 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :statistics, :only =>  [:index]  do
 
   end
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
 
+  resources :ratings, only: [:index, :edit] do
+    collection do
+      get 'add_ambul'
+      get 'add_hospital'
+      get 'list'
+      get 'add_question'
+      get 'add_form'
+      get 'thank_you'
+      get 'edit_form'
+      get 'edit_question'
+      get 'edit_answer'
+
+
+      post 'add_ambul'
+      post 'add_hospital'
+      post 'list'
+      post 'add_question'
+      post 'add_form'
+
+      put 'edit_form'
+      put 'edit_question'
+      put 'edit_answer'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

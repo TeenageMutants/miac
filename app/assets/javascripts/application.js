@@ -16,20 +16,23 @@
 //= require bootstrap-datetimepicker
 //= require moment/ru
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap.min
 //= require turbolinks
 //= require jquery-migrate.min
+//= require jquery-ui
+//= require jquery.purr
 //= require_tree .
+//= require best_in_place
 
 //$('.ckeditor').ckeditor({
 //    // optional config
 //});
 
 $('.tooltips').tooltip();
-$('.tooltips-show').tooltip('show');      
-$('.tooltips-hide').tooltip('hide');       
-$('.tooltips-toggle').tooltip('toggle');       
-$('.tooltips-destroy').tooltip('destroy');       
+$('.tooltips-show').tooltip('show');
+$('.tooltips-hide').tooltip('hide');
+$('.tooltips-toggle').tooltip('toggle');
+$('.tooltips-destroy').tooltip('destroy');
 
 /*Popovers*/
 $('.popovers').popover();
@@ -39,7 +42,14 @@ $('.popovers-toggle').popover('toggle');
 $('.popovers-destroy').popover('destroy');
 
 $(document).ready(function(){
+    jQuery(".best_in_place").best_in_place();
     $('[data-toggle="tooltip"]').tooltip();
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
 });
 
 function hide_show(){
@@ -59,11 +69,4 @@ function hide_show(){
 	document.getElementById("div").style.display=div;
 	document.getElementById("link").innerHTML=link;
 };
-$(document).ready(function() {
-    if ($('textarea').length > 0) {
-        var data = $('textarea');
-        $.each(data, function(i) {
-            CKEDITOR.replace(data[i].id);
-        });
-    }
-});
+
