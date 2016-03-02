@@ -71,6 +71,10 @@ gem 'cancan'
 gem 'passenger'
 gem "font-awesome-rails"
 
+  #edit inline
+  gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
+  gem 'jquery-ui-rails'
+
 #redactor and storage images
 gem 'ckeditor', github: 'galetahub/ckeditor'
 # gem 'ckeditor_rails'
@@ -91,7 +95,6 @@ gem 'bootstrap-colorpicker-rails'
 gem 'bootstrap-datepicker-rails', '~> 1.5'
 
 gem 'twitter-bootstrap-rails'
-
 
 
 

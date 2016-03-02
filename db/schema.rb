@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226081143) do
+
+ActiveRecord::Schema.define(version: 20160224062350) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +76,39 @@ ActiveRecord::Schema.define(version: 20160226081143) do
     t.string  "lsd_id"
     t.string  "web_site"
   end
+
+  create_table "rating_answers", force: :cascade do |t|
+    t.text    "body"
+    t.integer "rating_question_id"
+  end
+
+  add_index "rating_answers", ["rating_question_id"], name: "index_rating_answers_on_rating_question_id", using: :btree
+
+  create_table "rating_forms", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "type_id"
+    t.boolean  "is_current"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rating_people_answers", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "rating_question_id"
+    t.integer "rating_answer_id"
+    t.integer "sum"
+  end
+
+  add_index "rating_people_answers", ["organization_id"], name: "index_rating_people_answers_on_organization_id", using: :btree
+  add_index "rating_people_answers", ["rating_answer_id"], name: "index_rating_people_answers_on_rating_answer_id", using: :btree
+  add_index "rating_people_answers", ["rating_question_id"], name: "index_rating_people_answers_on_rating_question_id", using: :btree
+
+  create_table "rating_questions", force: :cascade do |t|
+    t.text    "body"
+    t.integer "rating_form_id"
+  end
+
+  add_index "rating_questions", ["rating_form_id"], name: "index_rating_questions_on_rating_form_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false

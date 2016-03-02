@@ -32,9 +32,11 @@
 
 
 
+
 //= require bootstrap-datetimepicker
 //= require fullcalendar
 //= require bootstrap-colorpicker
+
 
 
 
@@ -66,7 +68,14 @@ $('.popovers-toggle').popover('toggle');
 $('.popovers-destroy').popover('destroy');
 
 $(document).ready(function(){
+    jQuery(".best_in_place").best_in_place();
     $('[data-toggle="tooltip"]').tooltip();
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
 });
 
 function hide_show(){
@@ -86,11 +95,4 @@ function hide_show(){
 	document.getElementById("div").style.display=div;
 	document.getElementById("link").innerHTML=link;
 };
-$(document).ready(function() {
-    if ($('textarea').length > 0) {
-        var data = $('textarea');
-        $.each(data, function(i) {
-            CKEDITOR.replace(data[i].id);
-        });
-    }
-});
+

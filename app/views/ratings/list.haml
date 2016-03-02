@@ -1,0 +1,36 @@
+=render 'head'
+=render 'modal_add_form'
+.row
+  .col-md-2
+  .col-md-8
+    %centre
+      %h1
+        = link_to "< Назад", ratings_path, class: "btn btn-default"
+        Анкеты
+      .row
+        %table.table
+          %tr
+            %td{colspan:4}
+              .pull-right
+                = link_to "Добавить анкету", "#","data-target" => "#modal_add_form", "data-toggle" => "modal", class: "btn btn-success"
+          - (RatingForm.order(:created_at)).each do |form|
+            %tr
+              -if form.is_current?
+                %td.success
+                  %h4
+                    -#=best_in_place form, :name, path: edit_form_ratings_path(id: form.id)
+                    = form.name
+              -else
+                %td
+                  %h4
+                    -#=best_in_place form, :name, path: edit_form_ratings_path(id: form.id)
+                    = form.name
+              %td=form.type_id==1 ? "Амбулатория" : "Стационар"
+              %td= "создана #{I18n.l (form.created_at-3.hour), format: :long}"
+              %td
+                .pull-right
+                  = link_to "Редактировать",edit_rating_path(form.id), class: "btn btn-primary"
+
+
+
+
