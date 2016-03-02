@@ -69,7 +69,7 @@ gem 'passenger'
 gem "font-awesome-rails"
 
   #edit inline
-  gem 'best_in_place', github: 'aaronchi/best_in_place'
+  gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
   gem 'jquery-ui-rails'
 
 #redactor and storage images

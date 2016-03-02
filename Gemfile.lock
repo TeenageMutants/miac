@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/aaronchi/best_in_place.git
-  revision: 1152e2256afd485e66602833fd99d09d60994841
-  specs:
-    best_in_place (2.1.0)
-      jquery-rails
-      rails (>= 3.1)
-
-GIT
   remote: git://github.com/galetahub/ckeditor.git
   revision: eccdecd24bd2a0e4e9c32e919f53737e6e2911c2
   specs:
@@ -59,6 +51,9 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.4.1)
@@ -355,7 +350,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_in_place!
+  best_in_place (~> 3.0.1)
   bootstrap-sass (~> 3.3.3)
   bootstrap-will_paginate
   bootstrap3-datetimepicker-rails (~> 4.14.30)

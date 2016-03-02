@@ -7,30 +7,37 @@
 .container.content.faq-page
   / FAQ Blocks
   .row.equal-height-columns.margin-bottom-40
-    .col-sm-4
-      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
-        .service-bg
-        %i.icon-badge
-        .inner-faq-b
-          %h3
-            = link_to "Стационар", add_hospital_ratings_path
+    -if RatingForm.current_hospital
+      =link_to add_hospital_ratings_path do
+        .col-sm-4
+          .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+            .service-bg
+            %i.icon-badge
+            .inner-faq-b
+              %centre
+                %h3
+                  Стационар
             -#Стационар
-    .col-sm-4
-      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
-        .service-bg
-        %i.icon-directions
-        .inner-faq-b
-          %h3
-            = link_to "Амбулатория", add_ambul_ratings_path
-            -#Амбулатория
-    -if true
-      .col-sm-4
-      .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
-        .service-bg
-        %i.icon-directions
-        .inner-faq-b
-          %h3
-            = link_to "Анкеты", list_ratings_path
+    -if RatingForm.current_ambul
+      =link_to add_ambul_ratings_path do
+        .col-sm-4
+          .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+            .service-bg
+            %i.icon-directions
+            .inner-faq-b
+              %centre
+                %h3
+                  Амбулатория
+    -if user_signed_in?
+      = link_to list_ratings_path do
+        .col-sm-4
+          .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}
+            .service-bg
+            %i.icon-directions
+            .inner-faq-b
+              %centre
+                %h3
+                  Анкеты
   .row
     / Begin Tab v1
     -#.col-md-12

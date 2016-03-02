@@ -18,14 +18,13 @@
               -if form.is_current?
                 %td.success
                   %h4
-                    =best_in_place form, :type_id, path: edit_form_ratings_path(form.id)
-                    =best_in_place form, :name, path: edit_form_ratings_path(form.id)
-                    -#= form.name
+                    -#=best_in_place form, :name, path: edit_form_ratings_path(id: form.id)
+                    = form.name
               -else
                 %td
                   %h4
-                    =best_in_place form, :name, type: :text_field, path: edit_form_ratings_path(form.id)
-                    -#= form.name
+                    -#=best_in_place form, :name, path: edit_form_ratings_path(id: form.id)
+                    = form.name
               %td=form.type_id==1 ? "Амбулатория" : "Стационар"
               %td= "создана #{I18n.l (form.created_at-3.hour), format: :long}"
               %td

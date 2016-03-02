@@ -45,6 +45,8 @@ Rails.application.routes.draw do
       get 'add_form'
       get 'thank_you'
       get 'edit_form'
+      get 'edit_question'
+      get 'edit_answer'
 
 
       post 'add_ambul'
@@ -52,7 +54,10 @@ Rails.application.routes.draw do
       post 'list'
       post 'add_question'
       post 'add_form'
-      post 'edit_form'
+
+      put 'edit_form'
+      put 'edit_question'
+      put 'edit_answer'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

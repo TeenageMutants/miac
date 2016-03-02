@@ -9,8 +9,9 @@
         %centre
           %h1
             = link_to "< Назад", list_ratings_path, class: "btn btn-default"
-            =r_f.name
-            =r_f.type_id==1 ? " (для амбулатории)" : " (для стационара)"
+            =best_in_place r_f, :name, path: edit_form_ratings_path(id: params[:id])
+            -#=r_f.name
+            =r_f.type_id==1 ? " (амбулатория)" : " (стационар)"
         %table.table
           %tr
             %td
@@ -18,18 +19,20 @@
                 =label_tag "label", "Текущая анкета", class: "btn btn-primary"
               -else
                 =link_to "Удалить анкету", edit_rating_path(delete_form: true, id: params[:id], form_id: params[:id]), class: "btn btn-warning", :data => { :confirm => 'Удалить анкету?' }
-                =link_to "Назначить текущей", edit_rating_path(set_current: true, id: params[:id]), class: "btn btn-primary"
+                =link_to "Назначить текущей", edit_rating_path(set_current: true, id: params[:id]), class: "btn btn-primary", :data => { :confirm => 'Назначить анкету текущей?' }
               =link_to "Добавить вопрос", "#","data-target" => "#modal_add_question", "data-toggle" => "modal", class: "btn btn-success"
-          - (RatingQuestion.where(rating_form_id: params[:id])).each do |question|
+          - (RatingQuestion.where(rating_form_id: params[:id]).order(:id)).each do |question|
             %tr
               %td
                 %h4
-                  = question.body
+                  =best_in_place question, :body, path: edit_question_ratings_path(id: question.id)
+                  -#= question.body
                   =link_to "удалить", edit_rating_path(delete_question: true, question_id: question.id, id: params[:id]), :data => { :confirm => 'Удалить вопрос?' }
               %td
-                - RatingAnswer.where(rating_question_id: question.id).each do |answer|
+                - RatingAnswer.where(rating_question_id: question.id).order(:id).each do |answer|
                   %tr
                     %td
                       ='-'
-                      =answer.body
+                      =best_in_place answer, :body, path: edit_answer_ratings_path(id: answer.id)
+                      -#=answer.body
                       =link_to "удалить", edit_rating_path(delete_answer: true, answer_id: answer.id, id: params[:id]), :data => { :confirm => 'Удалить ответ?' }

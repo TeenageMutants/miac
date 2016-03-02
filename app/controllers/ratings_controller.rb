@@ -1,21 +1,27 @@
 class RatingsController < ApplicationController
+
+  respond_to :html, :json
+
   def add_ambul
-    @questions=RatingQuestion.where(rating_form_id: (RatingForm.current_ambul).id)
+    @questions=RatingQuestion.where(rating_form_id: (RatingForm.current_ambul).id).order(:id)
     if params[:commit].present?
       RatingPeopleAnswer.add params
     end
   end
 
   def add_hospital
-    @questions=RatingQuestion.where(rating_form_id: (RatingForm.current_hospital).id)
+    @questions=RatingQuestion.where(rating_form_id: (RatingForm.current_hospital).id).order(:id)
     if params[:commit].present?
       RatingPeopleAnswer.add params
       redirect_to thank_you_ratings_path
     end
   end
   def list
+    redirect_to ratings_path, notice: "Недостаточно прав" unless user_signed_in?
+
   end
   def edit
+    redirect_to ratings_path, notice: "Недостаточно прав" unless user_signed_in?
     if params[:delete_form].present?
       RatingForm.delete_form params
       redirect_to list_ratings_path, notice: "Анкета удалена"
@@ -30,7 +36,7 @@ class RatingsController < ApplicationController
     end
     if params[:delete_answer].present?
       RatingAnswer.delete_answer params
-      redirect_to edit_rating_path(params[:id]), notice: "Вопрос удален"
+      redirect_to edit_rating_path(params[:id]), notice: "Ответ удален"
     end
 
   end
@@ -64,23 +70,50 @@ class RatingsController < ApplicationController
       q_id=RatingQuestion.last.id
       answers.each { |a| RatingAnswer.add_answer(a, q_id)}
       redirect_to edit_rating_path(params[:rating_form_id])
-      flash[:success] = "Вопрос добавлена"
+      flash[:success] = "Вопрос добавлен"
     end
   end
   def thank_you
 
   end
 
+
   def edit_form
     f = RatingForm.find(params[:id])
     respond_to do |format|
-      if f.update_attributes(params)
+      if f.update_attributes(form_params)
         format.html { redirect_to list_ratings_path }
         format.json { respond_with_bip(f) }
-      # else
-      #   format.html { render :action => "women_consultation_edit" }
-      #   format.json { respond_with_bip(f) }
       end
     end
   end
+  def edit_question
+    q = RatingQuestion.find(params[:id])
+    respond_to do |format|
+      if q.update_attributes(question_params)
+        format.html { redirect_to list_ratings_path }
+        format.json { respond_with_bip(q) }
+      end
+    end
+  end
+  def edit_answer
+    a = RatingAnswer.find(params[:id])
+    respond_to do |format|
+      if a.update_attributes(answer_params)
+        format.html { redirect_to list_ratings_path }
+        format.json { respond_with_bip(a) }
+      end
+    end
+  end
+  private
+  def form_params
+    params.require(:rating_form).permit!
+  end
+  def question_params
+    params.require(:rating_question).permit!
+  end
+  def answer_params
+    params.require(:rating_answer).permit!
+  end
 end
+

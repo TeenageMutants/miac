@@ -4,12 +4,14 @@ class RatingPeopleAnswer < ActiveRecord::Base
   belongs_to :organization
 
   def self.add params
-    params[:sum].each do |question, answer|
-      rpa=RatingPeopleAnswer.where(rating_question_id: question, rating_answer_id: answer).first
-      if rpa.present?
-        rpa.increment!(:sum, 1)
-      else
-        RatingPeopleAnswer.create(organization_id: params[:organization_id], rating_question_id: question, rating_answer_id: answer, sum: 1)
+    if params[:sum]
+      params[:sum].each do |question, answer|
+        rpa=RatingPeopleAnswer.where(rating_question_id: question, rating_answer_id: answer).first
+        if rpa.present?
+          rpa.increment!(:sum, 1)
+        else
+          RatingPeopleAnswer.create(organization_id: params[:organization_id], rating_question_id: question, rating_answer_id: answer, sum: 1)
+        end
       end
     end
   end
