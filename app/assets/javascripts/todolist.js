@@ -49,6 +49,22 @@ ready = function() {
         $('#todolist_event_attributes_starts_at').data("DateTimePicker").maxDate(e.date);
     });
 
+    $('#save_event').on('click', function(){
+
+
+        if ((document.getElementById("todolist_title").value)=='' ||
+            (document.getElementById("todolist_performer_id").value)=='' ||
+            (document.getElementById("starts_at").value)==''  ||
+            (document.getElementById("end_at").value)==''){
+            window.alert('Заполните поля, помеченные звездочкой');
+            return false;}
+        else {
+
+            return true;}
+
+
+    });
+
 
 };
 

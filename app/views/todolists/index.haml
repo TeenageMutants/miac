@@ -30,7 +30,7 @@
                       %tr
                         %td
                           %strong
-                            = todolist.title.html_safe
+                            = link_to "#{todolist.title.html_safe}", todolist_path(todolist.id)
 
                         %td
                           = truncate(todolist.description.html_safe, :length => 14)
