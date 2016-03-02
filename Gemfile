@@ -77,11 +77,12 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-
+gem 'jquery-turbolinks'
 
 
 gem 'paloma'
 gem 'jquery-ui-rails'
+gem 'best_in_place', '~> 3.0.1'
 
 
 

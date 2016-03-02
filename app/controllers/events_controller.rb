@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
 
     todolist = Todolist.using(:shard_one)
-    @username=[]
+    # @username=[]
     if params[:user_id]=='all'
       # @username = 'всех'
 
@@ -31,13 +31,6 @@ class EventsController < ApplicationController
     @events = Event.using(:shard_one).where(todolist_id: @todolists.select(:id))
 
 
-    # if params[:user_id] == 'all'
-    #   @username = 'всех'
-    # else
-    #   @username = User.find(params[:user_id]).username if params[:user_id].present?
-    # end
-
-
     respond_to do |format|
       format.html
       format.json { render json: @events }
@@ -45,15 +38,6 @@ class EventsController < ApplicationController
 
   end
 
-  # def update_username
-  #
-  #     if params[:user_id] == 'all'
-  #       @username = 'всех'
-  #     elsif params[:user_id].present?
-  #       @username = User.find(params[:user_id].to_i).username
-  #     end
-  #
-  # end
 
   # GET /events/1
   # GET /events/1.json

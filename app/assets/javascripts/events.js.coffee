@@ -2,16 +2,9 @@ curSource = new Array
 curSource[0] = '/events'
 newSource = new Array
 
-ready = undefined
+#ready = undefined
 
 ready = ->
-
-
-
-
-#  $('#eventFilterCalendar').fullCalendar dayClick: ->
-#  alert 'a day has been clicked!'
-#  return
 
   $('#eventFilterCalendar').fullCalendar
 
@@ -60,40 +53,7 @@ ready = ->
 
       return
 
-#    $('input[type="radio"]').click (evt) ->
-#
-#      console.log( $(this).val())
-#      $.ajax
-#        url: '/events/update_username'
-#        data:
-#          user_id: $(this).val()
-#
-#        dataType: 'script'
-#      return
 
 
-
-
-
-
-
-#  $('#user_id').change ->
-#    #get current status of our filters into newSource
-#    newSource[0] = if $('#user_id').is(':checked') then '/events?user_id'
-#    #    + $('#e1').is(':checked') + '&e2=' + $('#e2').is(':checked')
-#    newSource[1] = if $('#user_admin').is(':checked') then '/events' else ''
-#    #remove the old eventSources
-#    $('#eventFilterCalendar').fullCalendar 'removeEventSource', curSource[0]
-#    $('#eventFilterCalendar').fullCalendar 'removeEventSource', curSource[1]
-#    $('#eventFilterCalendar').fullCalendar 'refetchEvents'
-#    #attach the new eventSources
-#    $('#eventFilterCalendar').fullCalendar 'addEventSource', newSource[0]
-#    $('#eventFilterCalendar').fullCalendar 'addEventSource', newSource[1]
-#    $('#eventFilterCalendar').fullCalendar 'refetchEvents'
-#    curSource[0] = newSource[0]
-#    curSource[1] = newSource[1]
-#    return
-#  return
-
-$(document).ready ready
-$(document).on 'page:load', ready
+$(document).ready(ready)
+$(document).on('page:load', ready)

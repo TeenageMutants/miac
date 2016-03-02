@@ -11,30 +11,25 @@
 // about supported directives.
 //
 //
-//
-
 //= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-
-
-//= require jquery-migrate.min
 //= require moment
+//= require ckeditor/init
+
 //= require moment/ru
-
-// = require ckeditor/init
-//= require app
-
-
-
+//= require jquery_ujs
+//= require bootstrap.min
 //= require turbolinks
-
-
-
-
-
-
+//= require jquery-migrate.min
+//= require jquery-ui
+//= require jquery.purr
 //= require_tree .
+//= require best_in_place
+
+
+
+
+
+
 
 
 //= require bootstrap-datetimepicker

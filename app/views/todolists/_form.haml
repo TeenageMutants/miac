@@ -1,61 +1,77 @@
 
-.well
-  = form_for @todolist do |f|
-    = f.label :title, "Название события"
-    %span{:style => "color: #BA0000; font-family: Verdana; font-size: 16px; font-weight: bold;"} *
-    %br
-    = f.text_field :title
-    %br
-    = f.label :description, "Описание события"
-    %br
-      = f.text_area :description, size:"60x12", class: "redactor", :rows => 40, :cols => 120
-    = f.hidden_field :user_id, :value => current_user.id
-    = f.label :performer_id, "Исполнитель"
-    %span{:style => "color: #BA0000; font-family: Verdana; font-size: 16px; font-weight: bold;"} *
-    = f.select :performer_id, options_from_collection_for_select(User.all, 'id', 'username', {selected: @todolist.performer_id})
-    %br
-    = f.label :private, "Событие видно только мне"
-    = f.check_box :private, :value => params[:private]
-    %br
-    = f.fields_for :event do |event|
-      = event.label "Время начала и окончания события:"
+
+
+= form_for @todolist do |f|
+  .row
+    .col-md-8
+      = f.label :title, "Наименование события"
       %span{:style => "color: #BA0000; font-family: Verdana; font-size: 16px; font-weight: bold;"} *
-
-      .input-group.input-daterange
-        -#%input.form-control{:type => "text"}/
-        %span.input-group-addon с
-        = event.text_field :starts_at, class: "form-control",placeholder: "Начало"
-        %span.input-group-addon до
-        -#%input.form-control{:type => "text"}/
-        = event.text_field :ends_at, class: "form-control", placeholder: "Окончание"
-
-      -#.container
-      -#  .row
-      -#    .col-md-5
-      -#      .form-group
-      -#        .input-group.date
-      -#          = event.text_field :starts_at, class: "form-control",placeholder: "Начало"
-      -#  .row
-      -#    .col-md-5
-      -#      .form-group
-      -#        .input-group.date
-      -#          = event.text_field :ends_at, class: "form-control", placeholder: "Окончание"
-      -#
-
       %br
-      = event.label :all_day, "AllDay check"
-      = event.check_box :all_day
-      = event.hidden_field :todolist_id, :value => @todolist.id
-      %br
-      = event.label :color, "Выберите цвет фона для события:"
-      = event.text_field :color, class: 'form-control', placeholder: "Нажмите, чтобы выбрать цвет", id: 'color'
+      = f.text_field :title, class: "form-control", :placeholder => "Введите наименование события"
 
-    =  f.submit "Сохранить"
-    .pull-right
+    .col-md-4
+      = f.label :performer_id, "Исполнитель"
+      %span{:style => "color: #BA0000; font-family: Verdana; font-size: 16px; font-weight: bold;"} *
       %br
-        = link_to todolists_path, class: "btn btn-sm btn-warning" do
-          %i.fa.fa-home.fa-fw
-          Отмена и переход на главную
+      = f.select :performer_id, options_from_collection_for_select(User.all, 'id', 'username', {selected: @todolist.performer_id} ),   {prompt: 'Выберите исполнителя' },  {class: "form-control"}
+
+
+  .row
+    %br
+  .row
+    .col-md-12
+      = f.label :description, "Описание события"
+      %br
+        = f.text_area :description, size:"60x12", class: "redactor", :rows => 40, :cols => 120, class: "form-control", :placeholder => "Введите описание события"
+      = f.hidden_field :user_id, :value => current_user.id
+
+
+
+  .row
+
+    = f.fields_for :event do |event|
+      .col-md-6
+        = event.label "Время начала и окончания события:"
+        %span{:style => "color: #BA0000; font-family: Verdana; font-size: 16px; font-weight: bold;"} *
+
+
+
+
+        .input-group.input-daterange
+          -#%input.form-control{:type => "text"}/
+          %span.input-group-addon с
+          = event.hidden_field :starts_at
+          = event.text_field :starts_at,  class: "form-control",placeholder: "Начало", id: 'starts_at'
+          %span.input-group-addon до
+          = event.hidden_field :ends_at, class: "form-control", placeholder: "Окончание"
+          -#%input.form-control{:type => "text"}/
+          = event.text_field :ends_at, class: "form-control", placeholder: "Окончание", id: 'end_at'
+
+      .col-md-3
+        = event.label :all_day, "Событие на целый день"
+        = event.check_box :all_day
+        = event.hidden_field :todolist_id, :value => @todolist.id
+        %br
+        = f.label :private, "Событие видно только мне"
+        = f.check_box :private, :value => params[:private]
+      .col-md-3
+        .row
+          .col-md-12
+            = event.label :color, "Выберите цвет фона для события:"
+        .row
+          .col-md-6
+            = event.text_field :color, class: 'form-control', placeholder: "Нажмите, чтобы выбрать цвет", id: 'color'
+          .col-md-6
+            = link_to 'Выбрать', "#", class: "btn btn-sm btn-primary"
+  .row
+    %br
+  .row
+    .col-md-2
+      =  f.submit "Сохранить", class: "btn btn-sm btn-primary"
+    .col-md-2
+      = link_to events_path, class: "btn btn-sm btn-default" do
+        %i.fa.fa-home.fa-fw
+        Отмена и переход на главную
 
 
 

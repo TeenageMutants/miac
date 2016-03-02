@@ -1,10 +1,6 @@
 .row
 
   .col-md-10.col-md-offset-1
-
-
-
-
     .panel.panel-info
       .panel-heading
         Календарь событий и задач
@@ -19,7 +15,7 @@
             .pull-left
               -if user_signed_in?
                 = link_to "Создать задание", new_todolist_path, class: "btn btn-sm btn-primary"
-              = link_to "Все события", detail_todolist_todolists_path, class: "btn btn-sm btn-default"
+                = link_to "Мои события подробно", todolists_path, class: "btn btn-sm btn-default"
 
         %br
 
@@ -38,48 +34,13 @@
                 %br
 
                 -User.where('id !=(?)', User.find_by_username('admin').id).each do |user|
-                  -#%input#user{:unchecked => "unchecked", :user_id => "#{user.id}",:name => "#{user.username}", :type => "checkbox", :id =>" #{user.username}"}/
-                  -#=check_box_tag :user_id, user.id
                   = radio_button_tag :user_id, user.id, data: {behavior: "clickable" }
                   =label_tag :user_name, user.username
                   %br
-                -#= collection_check_boxes :user, :id, User.where('id !=(?)', User.find_by_username('admin').id), :id, :username
                 %br
                 = radio_button_tag :user_id, 1,  data: {behavior: "clickable" }, :checked=> "checked"
                 = label_tag :user_admin, 'Администратор'
                 %br
-                -#=submit_tag 'Найти задачи'
-
-
-
-              -#.all
-              -#  %input#all{:unchecked => "unchecked", :name => "all", :type => "checkbox"}/
-              -#  %label{:for => "all"} Выделить все
-              -#.admin
-              -#  %input#user_admin{:checked => "checked", :name => "admin", :type => "checkbox"}/
-              -#  %label{:for => "admin"} Задачи администратора
-              -#-User.where('id !=(?)', User.find_by_username('admin').id).each do |user|
-              -#
-              -#  %input#user{:unchecked => "unchecked", :name => "#{user.username}", :type => "checkbox", :id =>" #{user.username}"}/
-              -#  %label{:for => user.username} Задачи #{user.username}
-              -#  %br
-
-
-
-    -#:javascript
-    -#  $('#all').click(function() {
-    -#  alert('click');
-    -#
-    -#   if (this.checked) {
-    -#       $(':checkbox').each(function() {
-    -#           this.checked = true;
-    -#       });
-    -#   } else {
-    -#      $(':checkbox').each(function() {
-    -#           this.checked = false;
-    -#       });
-    //   }
-    //  });
 
 
 
