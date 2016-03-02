@@ -1,0 +1,56 @@
+%h3.page-title
+  Описание события
+  %strong
+    %em
+      #{ @todolist.title.html_safe }
+  для пользователя
+  %strong
+    %em
+      #{current_user.username}
+-#  %br
+-#    = link_to "#{@todolist.title}", todolist_path
+%table.table.active
+  %tr.info
+    %th Название
+    %th Описание
+    %th Приватность
+    %th Автор
+
+    %th Исполнитель
+    %th Редактирование
+  %tbody
+    %br
+      %tr
+        %td{style:"width: 10%;"}
+          %strong
+            = @todolist.title.html_safe
+
+        %td{style:"width: 20%;"}
+          = @todolist.description.html_safe
+        %td{style: "width: 20%;"}
+          - if  @todolist.private
+            задание видно только вам
+          - else
+            задание видят все пользователи
+        %td
+          = User.find(@todolist.user_id).username
+
+        %td
+          = User.find(@todolist.performer_id).username
+
+
+        %td
+          - if current_user.id == @todolist.user_id
+            = link_to edit_todolist_path(id: @todolist.id), class: "btn btn-sm btn-warning" do
+              %i.fa.fa.fa-pencil-square-o
+              Редактировать
+            = link_to todolist_path(id: @todolist.id), method: :delete, data: { confirm: "Точно удалить?" }, class: "btn btn-sm btn-warning" do
+              %i.fa.fa.fa-pencil-square-o
+              Удалить
+
+%br
+
+
+= link_to todolists_path, class: "btn btn-sm btn-warning" do
+  %i.fa.fa-home.fa-fw
+  На главную

@@ -1,0 +1,19 @@
+octopus:
+  environments:
+    - development
+    - production
+  development:
+    shard_one:
+      host: localhost
+      adapter: postgresql
+      database: calendar_db
+      username: postgres
+      password: hlk6
+      pool: 5
+  production:
+    shard_one:
+      host: localhost
+      adapter: postgresql
+      database: calendar_db
+      username: postgres
+      password: '123123'

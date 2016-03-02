@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027065600) do
+ActiveRecord::Schema.define(version: 20160226081143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(version: 20151027065600) do
     t.integer  "types"
     t.text     "preview"
     t.text     "body"
-    t.datetime "published_at"
-    t.datetime "published_to"
+    t.datetime "published_at",       precision: 6
+    t.datetime "published_to",       precision: 6
     t.string   "vid_url"
     t.string   "tag"
-    t.integer  "user_id",            null: false
+    t.integer  "user_id",                          null: false
     t.string   "name"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",         precision: 6, null: false
+    t.datetime "updated_at",         precision: 6, null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "image_updated_at",   precision: 6
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20151027065600) do
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
+    t.string   "data_file_name",                             null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.integer  "assetable_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20151027065600) do
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   precision: 6
+    t.datetime "updated_at",                   precision: 6
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
@@ -84,25 +84,25 @@ ActiveRecord::Schema.define(version: 20151027065600) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                default: "",    null: false
+    t.string   "encrypted_password",                   default: "",    null: false
     t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at",    precision: 6
+    t.integer  "sign_in_count",                        default: 0,     null: false
+    t.datetime "current_sign_in_at",     precision: 6
+    t.datetime "last_sign_in_at",        precision: 6
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
-    t.boolean  "admin",                  default: false
-    t.boolean  "moderator",              default: false
-    t.boolean  "boolean",                default: false
+    t.boolean  "admin",                                default: false
+    t.boolean  "moderator",                            default: false
+    t.boolean  "boolean",                              default: false
     t.string   "fio"
     t.string   "hospital"
-    t.boolean  "blocks",                 default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "blocks",                               default: false
+    t.datetime "created_at",             precision: 6
+    t.datetime "updated_at",             precision: 6
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

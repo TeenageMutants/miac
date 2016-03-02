@@ -34,6 +34,16 @@ Rails.application.routes.draw do
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
 
+  resources :events
+
+
+  resources :todolists, shallow: true do
+    collection do
+      get 'detail_todolist'
+    end
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

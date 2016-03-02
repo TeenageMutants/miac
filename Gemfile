@@ -31,6 +31,9 @@ group :development, :test do
   # gem 'debugger'
   gem 'turn', :require => false
   gem 'meta_request'
+  gem 'ar-octopus'
+  gem 'fullcalendar-rails'
+
 
 end
 
@@ -53,7 +56,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'less-rails'
 gem 'therubyracer'
-gem 'jquery-rails'  # If using Bootstrap's JS plugins.
+
 gem 'less-rails-bootstrap'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'kaminari'
@@ -73,10 +76,20 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 # gem 'ckeditor_rails'
 gem 'paperclip'
 
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
+
+gem 'paloma'
+gem 'jquery-ui-rails'
+
+
+
+gem 'bootstrap-colorpicker-rails'
+
+gem 'bootstrap-datepicker-rails', '~> 1.5'
+
+gem 'twitter-bootstrap-rails'
 
 
 

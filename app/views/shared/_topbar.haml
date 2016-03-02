@@ -92,5 +92,7 @@
             = link_to "Проекты", projects_path
           %li{class: request.path == service_path ? "active": "" }
             = link_to "Услуги", service_path
+          %li{class: request.path == events_path ? "active": "" }
+            = link_to "Календарь", events_path
           %li{class: request.path == about_path ? "active": "" }
             = link_to "О нас", about_path
