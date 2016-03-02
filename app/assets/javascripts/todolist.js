@@ -42,12 +42,20 @@ ready = function() {
 
 
 
+    $("#starts_at").on("dp.change", function (e) {
+        $('#end_at').data("DateTimePicker").minDate(e.date);
+    });
+    $("#end_at").on("dp.change", function (e) {
+        $('#starts_at').data("DateTimePicker").maxDate(e.date);
+    });
+
     $("#todolist_event_attributes_starts_at").on("dp.change", function (e) {
         $('#todolist_event_attributes_ends_at').data("DateTimePicker").minDate(e.date);
     });
     $("#todolist_event_attributes_ends_at").on("dp.change", function (e) {
         $('#todolist_event_attributes_starts_at').data("DateTimePicker").maxDate(e.date);
     });
+
 
     $('#save_event').on('click', function(){
 
