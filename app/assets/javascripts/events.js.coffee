@@ -20,6 +20,60 @@ ready = ->
       center: 'title',
       right: 'month, agendaDay, agendaWeek'
     }
+    monthNames: [
+      'Январь'
+      'Февраль'
+      'Март'
+      'Апрель'
+      'Май'
+      'οюнь'
+      'οюль'
+      'Август'
+      'Сентябрь'
+      'Октябрь'
+      'Ноябрь'
+      'Декабрь'
+    ]
+    monthNamesShort: [
+      'Янв.'
+      'Фев.'
+      'Март'
+      'Апр.'
+      'Май'
+      'οюнь'
+      'οюль'
+      'Авг.'
+      'Сент.'
+      'Окт.'
+      'Ноя.'
+      'Дек.'
+    ]
+    dayNames: [
+      'Воскресенье'
+      'Понедельник'
+      'Вторник'
+      'Среда'
+      'Четверг'
+      'Пятница'
+      'Суббота'
+    ]
+    dayNamesShort: [
+      'ВС'
+      'ПН'
+      'ВТ'
+      'СР'
+      'ЧТ'
+      'ПТ'
+      'СБ'
+    ]
+    buttonText:
+      prev: 'Предыдущий месяц'
+      next: 'Следующий месяц'
+
+      today: 'Сегодня'
+      month: 'Месяц'
+      week: 'Неделя'
+      day: 'День'
 
     getRadioCheckedValue = (radio_name) ->
       oRadio = document.forms[0].elements[radio_name]

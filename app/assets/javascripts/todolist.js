@@ -17,7 +17,6 @@ ready = function() {
     //$('#eventFilterCalendar').fullCalendar();
     //
     $('#starts_at').datetimepicker({
-        format: 'YYYY-MM-DD HH:mm  ',
         locale: 'ru'
     });
     $('#end_at').datetimepicker({

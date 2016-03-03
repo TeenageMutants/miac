@@ -14,10 +14,11 @@
                     %i.fa.fa-home.fa-fw
                     На главную
 
-                  = link_to new_todolist_path, class: "btn btn-sm btn-primary" do
-                    %glyphicon.glyphicon-plus
-                    Создать задание
+
                   -if current_user.present?
+                    = link_to new_todolist_path, class: "btn btn-sm btn-primary" do
+                      %glyphicon.glyphicon-plus
+                      Создать задание
                     = link_to todolists_path, class: "btn btn-sm btn-primary" do
                       %i.fa.fa-list.fa-fw
                       Мои задачи

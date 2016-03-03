@@ -12,12 +12,13 @@
 
  *= require bootstrap_and_overrides
  *= require font-awesome
+  *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
  *= require jquery-ui
  *= require fullcalendar
  *= require bootstrap-colorpicker
- *= require bootstrap-datetimepicker
+
 
  */
 

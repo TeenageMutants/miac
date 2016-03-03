@@ -1,6 +1,4 @@
 
-
-
 = form_for @todolist do |f|
   .row
     .col-md-8
@@ -22,7 +20,7 @@
     .col-md-12
       = f.label :description, "Описание события"
       %br
-        = f.text_area :description, size:"60x12", class: "redactor", :rows => 40, :cols => 120, class: "form-control", :placeholder => "Введите описание события"
+        = f.cktext_area :description, size:"60x12", class: "redactor", :rows => 40, :cols => 120, class: "form-control", :placeholder => "Введите описание события"
       = f.hidden_field :user_id, :value => current_user.id
 
 
@@ -72,6 +70,8 @@
       = link_to events_path, class: "btn btn-sm btn-default" do
         %i.fa.fa-home.fa-fw
         Отмена и переход на главную
+
+
 
 
 
