@@ -27,6 +27,7 @@
 //= require fullcalendar
 //= require bootstrap-colorpicker
 //= require bootstrap.min.js
+//= require fullcalendar
 
 
 
