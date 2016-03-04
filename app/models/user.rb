@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_and_belongs_to_many :roles
   belongs_to :role
+  has_many :todolists
 
 
   def self.local_ip

@@ -1,0 +1,48 @@
+%script{:src => "http://htmlstream.com/preview/unify-v1.7/assets/plugins/bootstrap/js/bootstrap.min.js", :type => "text/javascript"}
+.row
+
+  .col-md-10.col-md-offset-1
+    .panel.panel-info
+      .panel-heading
+        Календарь событий и задач
+
+        -##username
+        -#  = @username
+
+
+      .panel-body
+        .row
+          .col-md-12
+            .pull-left
+              -if user_signed_in?
+                = link_to "Создать задание", new_todolist_path, class: "btn btn-sm btn-primary"
+                = link_to "Мои события подробно", todolists_path, class: "btn btn-sm btn-default"
+              = link_to "Календарь", events_path, class: "btn btn-sm btn-default"
+        %br
+
+
+        .row
+          .col-md-10
+            #eventFilterCalendar
+          .col-md-2
+            .panel.panel-info
+
+              =form_tag("/events", method: :get, remote: true ) do
+
+
+                = radio_button_tag :user_id, 'all', data: {behavior: "clickable" }
+                = label_tag :user_all, 'Все'
+                %br
+
+                -User.where('id !=(?)', User.find_by_username('admin').id).each do |user|
+                  = radio_button_tag :user_id, user.id, data: {behavior: "clickable" }
+                  =label_tag :user_name, user.username
+                  %br
+                %br
+                = radio_button_tag :user_id, 1,  data: {behavior: "clickable" }, :checked=> "checked"
+                = label_tag :user_admin, 'Администратор'
+                %br
+
+
+
+

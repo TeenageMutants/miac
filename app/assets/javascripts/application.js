@@ -10,10 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//
 //= require jquery
 //= require moment
 //= require ckeditor/init
-//= require bootstrap-datetimepicker
+
 //= require moment/ru
 //= require jquery_ujs
 //= require bootstrap.min
@@ -24,9 +25,34 @@
 //= require_tree .
 //= require best_in_place
 
+
+
+
+
+
+
+
+
+//= require bootstrap-datetimepicker
+//= require fullcalendar
+//= require bootstrap-colorpicker
+
+
+
+
+
 //$('.ckeditor').ckeditor({
 //    // optional config
 //});
+
+
+
+
+window.onLoad = function(callback) {
+    // binds ready event and turbolink page:load event
+    $(document).ready(callback);
+    $(document).on('page:load',callback);
+};
 
 $('.tooltips').tooltip();
 $('.tooltips-show').tooltip('show');

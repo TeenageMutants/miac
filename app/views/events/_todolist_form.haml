@@ -1,0 +1,42 @@
+-if @todolists.blank?
+  %h3 Ни одна задача не создана
+-else
+  %table.table.active
+    %tr.info
+      %th Название
+      %th Описание
+      %th Приватность
+      %th Автор
+      %th Исполнитель
+
+      %th Редактирование
+    %tbody
+
+      - @todolists.each do |todolist|
+        %tr
+          %td{style:"width: 10%;"}
+            %strong
+              = link_to todolist.title.html_safe, todolist_path(id: todolist.id)
+              = todolist.id
+
+          %td{style:"width: 25%;"}
+            = todolist.description.html_safe
+          %td{style: "width: 20%;"}
+            - if  todolist.private
+              задание видно только вам
+            - else
+              задание видят все пользователи
+          %td
+            = User.find(todolist.user_id).username
+
+          %td
+            = User.find(todolist.performer_id).username
+
+          %td
+            - if current_user.id == todolist.user_id
+              = link_to edit_todolist_path(id: todolist.id), class: "btn btn-sm btn-warning" do
+                %i.fa.fa.fa-pencil-square-o
+                Редактировать
+              = link_to todolist_path(id: todolist.id), method: :delete, data: { confirm: "Точно удалить?" }, class: "btn btn-sm btn-warning" do
+                %i.fa.fa-trash-o.fa-fw
+                Удалить

@@ -1,0 +1,154 @@
+-#-if current_user.present? && current_user.id == @todolist.user_id
+.row
+
+  .col-md-10.col-md-offset-1
+    .panel.panel-info
+      .panel-heading
+        Календарь событий и задач. Описание события #{ @todolist.title.html_safe }
+      .panel-body
+        .row
+          .col-md-12
+            .row
+              .col-md-12
+                .pull-left
+                  = link_to events_path, class: "btn btn-sm btn-primary" do
+                    %i.fa.fa-home.fa-fw
+                    На главную
+
+
+                  -if current_user.present?
+                    = link_to new_todolist_path, class: "btn btn-sm btn-primary" do
+                      %glyphicon.glyphicon-plus
+                      Создать задание
+                    = link_to todolists_path, class: "btn btn-sm btn-primary" do
+                      %i.fa.fa-list.fa-fw
+                      Мои задачи
+
+                .pull-right
+                  - if current_user.present? && current_user.id == @todolist.user_id
+                    = link_to edit_todolist_path(@todolist), class: "btn btn-sm btn-default" do
+                      %i.fa.fa.fa-pencil.fa-fw
+                      Редактировать
+                    = link_to todolist_path(@todolist), method: :delete, data: { confirm: "Точно удалить?" }, class: "btn btn-sm btn-default" do
+                      %i.fa.fa-trash-o.fa-fw
+                      Удалить
+
+
+            .row
+              %br
+
+            .row
+              .col-md-4
+                .well
+                  %strong Автор:
+                  = User.find(@todolist.user_id).username
+              .col-md-4
+                .well
+                  %strong Исполнитель:
+                  = User.find(@todolist.performer_id).username
+              .col-md-4
+                .well
+                  %strong Приватность:
+                  -if  @todolist.private == true
+                    задание видно только мне
+                  -elsif @todolist.private == false
+                    задание видно всем
+            .row
+              .col-md-12
+                .well
+                  %strong Действительно с:
+                  =I18n.l @todolist.event.starts_at, format: :long
+                  %strong по:
+                  =I18n.l @todolist.event.ends_at, format: :long
+            .row
+              .col-md-12
+
+                .well
+                  %strong Наименование события:
+
+                  = @todolist.title.html_safe
+            .row
+              .col-md-12
+
+                .well
+                  %strong Подробнее о событии:
+                  %br
+                  = @todolist.description.html_safe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  -#.row
+    .col-md-10.col-md-offset-1
+      .panel.panel-info
+        .panel-heading
+          Календарь событий и задач. Описание события #{ @todolist.title.html_safe }
+        .panel-body
+          .row
+            .col-md-12
+              = link_to events_path, class: "btn btn-sm btn-primary" do
+                %i.fa.fa-home.fa-fw
+                На главную
+          .row
+            .col-md-12
+              %table.table.active
+                %tr.info
+                  %th Название
+                  %th Описание
+                  %th{style: "width: 20%;"}  Сроки
+                  %th Приватность
+                  %th Автор
+
+                  %th Исполнитель
+                  %th Редактирование
+                %tbody
+                  %br
+                    %tr
+                      %td{style:"width: 10%;"}
+                        %strong
+                          = @todolist.title.html_safe
+
+                      %td{style:"width: 20%;"}
+                        = truncate(@todolist.description.html_safe, length: 14)
+                      %td
+                        %strong #{I18n.l @todolist.event.starts_at, format: :short}-
+                        %br
+                        %strong #{I18n.l @todolist.event.ends_at, format: :short}
+                      %td{style: "width: 20%;"}
+                        - if  @todolist.private
+                          задание видно только вам
+                        - else
+                          задание видят все пользователи
+                      %td
+                        = User.find(@todolist.user_id).username
+
+                      %td
+                        = User.find(@todolist.performer_id).username
+
+
+                      %td
+                        - if current_user.id == @todolist.user_id
+                          = link_to edit_todolist_path(id: @todolist.id), class: "btn btn-sm btn-primary" do
+                            %i.fa.fa.fa-pencil-square-o
+                            -#Редактировать
+                          = link_to todolist_path(id: @todolist.id), method: :delete, data: { confirm: "Точно удалить?" }, class: "btn btn-sm btn-default" do
+                            %i.fa.fa-trash-o.fa-fw
+                            -#Удалить
+
+              %br
+
+

@@ -1,0 +1,16 @@
+= form_for @event do |f|
+  Начало
+  %br
+    = f.datetime_select :starts_at
+  Конец
+  %br
+    = f.datetime_select :ends_at
+  = f.hidden_field :todolist_id
+
+
+  Приватность
+  %br
+    = f.check_box :all_day, :value => params[:private]
+  %br
+    = f.submit "Сохранить"
+

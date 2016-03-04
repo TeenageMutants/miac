@@ -1,0 +1,81 @@
+-if current_user.present?
+  .row
+    .col-md-10.col-md-offset-1
+      .panel.panel-info
+        .panel-heading
+          Календарь задач и событий для пользователя #{current_user.username}.
+        .panel-body
+          .row
+            .col-md-12
+              = link_to "На главную", events_path, class: "btn btn-sm btn-default"
+              = link_to "Создать задание", new_todolist_path, class: "btn btn-sm btn-primary"
+          .row
+            .col-md-12
+
+              -if @todolists.blank?
+                %h3 Ни одна задача не создана
+              -else
+                %table.table.table-hover
+                  %tr.info
+                    %th Название
+                    %th Описание
+                    %th{style: "width: 20%;"}  Сроки
+                    %th.text-center{style: "width: 10%;"} Приватность
+                    %th.text-center{style: "width: 10%;"} Я автор
+                    %th.text-center{style: "width: 10%;"} Я исполнитель
+
+                    %th{style: "width: 10%;"}
+                  %tbody
+                    - @todolists.each do |todolist|
+                      %tr
+                        %td
+                          %strong
+                            = link_to "#{todolist.title.html_safe}", todolist_path(todolist.id)
+
+                        %td
+                          = truncate(todolist.description.html_safe, :length => 14)
+                        %td
+                          %strong #{I18n.l Event.find_by_todolist_id(todolist.id).starts_at, format: :short}-
+                          %br
+                          %strong #{I18n.l Event.find_by_todolist_id(todolist.id).ends_at, format: :short}
+                        %td
+                          %center
+                            - if  todolist.private
+                              = check_box_tag("name", "value", true, :disabled=> true, class: "checkbox" )
+                            - else
+                              = check_box_tag("name", "value", false, :disabled=> true, class: "checkbox")
+
+
+                        %td
+                          %center
+                            -if current_user.id == todolist.user_id
+                              = check_box_tag("name", "value", true, :disabled=> true, class: "checkbox")
+                            -else
+                              = check_box_tag("name", "value", false,:disabled=> true, class: "checkbox")
+
+
+                        %td
+                          %center
+                            -if current_user.id == todolist.performer_id
+                              = check_box_tag("name", "value", true, :disabled=> true, class: "checkbox")
+                            -else
+                              = check_box_tag("name", "value", false, :disabled=> true, class: "checkbox")
+
+
+                        %td
+                          - if current_user.id == todolist.user_id
+                            .pull-right
+                              = link_to edit_todolist_path(id: todolist.id), class: "btn btn-sm btn-default" do
+                                %i.fa.fa.fa-pencil-square-o
+                                -#Редактировать
+                              = link_to todolist_path(id: todolist.id), method: :delete, data: { confirm: "Точно удалить?" }, class: "btn btn-sm btn-primary" do
+                                %i.fa.fa-trash-o.fa-fw
+                                -#Удалить
+
+
+
+
+
+
+
+

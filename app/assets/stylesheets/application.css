@@ -9,13 +9,21 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *= require bootstrap-datetimepicker
+
+ *= require bootstrap_and_overrides
  *= require font-awesome
+  *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
- *= require style
+ *= require jquery-ui
+ *= require fullcalendar
+ *= require bootstrap-colorpicker
+
 
  */
+
+
+
 .parallax-team {
 	/*background: url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg) 50% 0 repeat fixed; */
 	background-image:url(http://www.salesenablementcentre.com/wp-content/uploads/2014/05/bigstock-Businessman-Hand-Working-With-43164193.jpg);
