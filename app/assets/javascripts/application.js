@@ -22,29 +22,11 @@
 //= require jquery-migrate.min
 //= require jquery-ui
 //= require jquery.purr
-//= require_tree .
 //= require best_in_place
-
-
-
-
-
-
-
-
-
 //= require bootstrap-datetimepicker
 //= require fullcalendar
 //= require bootstrap-colorpicker
-
-
-
-
-
-//$('.ckeditor').ckeditor({
-//    // optional config
-//});
-
+//= require bootstrap.min.js
 
 
 
@@ -67,16 +49,7 @@ $('.popovers-hide').popover('hide');
 $('.popovers-toggle').popover('toggle');
 $('.popovers-destroy').popover('destroy');
 
-$(document).ready(function(){
-    jQuery(".best_in_place").best_in_place();
-    $('[data-toggle="tooltip"]').tooltip();
-    if ($('textarea').length > 0) {
-        var data = $('textarea');
-        $.each(data, function(i) {
-            CKEDITOR.replace(data[i].id);
-        });
-    }
-});
+
 
 function hide_show(){
 	var div=document.getElementById("div").style.display;

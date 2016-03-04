@@ -7,12 +7,11 @@ group :assets do
 	gem 'sass-rails', '~> 5.0'
 	gem 'coffee-rails', '~> 4.1.0'
 	gem 'uglifier', '>= 1.3.0'
-	
+
 end
 
 group :development, :test do
 	gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -47,7 +46,9 @@ gem 'haml'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jbuilder', '~> 2.0'
 gem 'turbolinks'
+gem 'jquery-ui-rails'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'twitter-typeahead-rails'
 # gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
@@ -71,29 +72,18 @@ gem 'cancan'
 gem 'passenger'
 gem "font-awesome-rails"
 
-  #edit inline
-  gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
-  gem 'jquery-ui-rails'
+#edit inline
+gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
+
 
 #redactor and storage images
 gem 'ckeditor', github: 'galetahub/ckeditor'
 # gem 'ckeditor_rails'
 gem 'paperclip'
-
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-gem 'jquery-turbolinks'
-
-
 gem 'paloma'
-gem 'jquery-ui-rails'
-gem 'best_in_place', '~> 3.0.1'
-
-
-
 gem 'bootstrap-colorpicker-rails'
-
 gem 'bootstrap-datepicker-rails', '~> 1.5'
-
 gem 'twitter-bootstrap-rails'
 
 
