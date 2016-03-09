@@ -69,8 +69,8 @@ gem 'passenger'
 gem "font-awesome-rails"
 
   #edit inline
-  gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
-  gem 'jquery-ui-rails'
+gem 'best_in_place', '~> 3.0.1'#, github: 'aaronchi/best_in_place'
+gem 'jquery-ui-rails'
 
 #redactor and storage images
 gem 'ckeditor', github: 'galetahub/ckeditor'
@@ -81,8 +81,8 @@ gem 'paperclip'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
-
-
+#user's roles and access rights
+# gem 'rolify'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

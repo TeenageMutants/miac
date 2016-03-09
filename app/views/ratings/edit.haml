@@ -36,3 +36,4 @@
                       =best_in_place answer, :body, path: edit_answer_ratings_path(id: answer.id)
                       -#=answer.body
                       =link_to "удалить", edit_rating_path(delete_answer: true, answer_id: answer.id, id: params[:id]), :data => { :confirm => 'Удалить ответ?' }
+              %td

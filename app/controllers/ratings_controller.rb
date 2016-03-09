@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-
+  helper ApplicationHelper
   respond_to :html, :json
 
   def add_ambul
@@ -17,11 +17,11 @@ class RatingsController < ApplicationController
     end
   end
   def list
-    redirect_to ratings_path, notice: "Недостаточно прав" unless user_signed_in?
+    redirect_to ratings_path, notice: "Недостаточно прав" unless has_ability? :rating
 
   end
   def edit
-    redirect_to ratings_path, notice: "Недостаточно прав" unless user_signed_in?
+    redirect_to ratings_path, notice: "Недостаточно прав" unless user_signed_in? && User.has_ability?(current_user, :rating)
     if params[:delete_form].present?
       RatingForm.delete_form params
       redirect_to list_ratings_path, notice: "Анкета удалена"

@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224062350) do
+ActiveRecord::Schema.define(version: 20160304071550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -108,6 +113,19 @@ ActiveRecord::Schema.define(version: 20160224062350) do
 
   add_index "rating_questions", ["rating_form_id"], name: "index_rating_questions_on_rating_form_id", using: :btree
 
+  create_table "role_abilities", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "ability_id"
+    t.boolean "is_set"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
   end
@@ -136,6 +154,7 @@ ActiveRecord::Schema.define(version: 20160224062350) do
     t.boolean  "blocks",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

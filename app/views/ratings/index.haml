@@ -28,7 +28,7 @@
               %centre
                 %h3
                   Амбулатория
-    -if user_signed_in?
+    -if has_ability?(:rating)
       = link_to list_ratings_path do
         .col-sm-4
           .easy-block-v3.service-or.equal-height-column{:style => "height: 100px;"}

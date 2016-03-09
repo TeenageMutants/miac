@@ -1,5 +1,6 @@
 # coding: utf-8
 class User < ActiveRecord::Base
+  # rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -61,4 +62,12 @@ class User < ActiveRecord::Base
       user.update_attributes(role_id: params[:role])
     end
   end
+  def self.user_role user
+    Role.find(user.role_id)
+  end
+
+  # def self.has_ability? user, ability
+  #   RoleAbility.where(role_id: User.user_role(user).id,ability_id: Ability.get_ability_by_name(ability).id).first.is_set
+  # end
+
 end
