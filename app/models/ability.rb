@@ -8,15 +8,15 @@ class Ability< ActiveRecord::Base
 
   # ИСПОЛЬЗОВАНИЕ has_ability?(:rating)
 
-  def self.add_ability name, description, roles_who_have=[]
+  def self.add_ability name, description#, roles_who_have=[]
     new_ability=Ability.create(name: name, description: description)
-    Role.all.each do |role|
-      if roles_who_have.include?(role.name.to_sym)
-        RoleAbility.create(role_id: role.id, ability_id: new_ability.id, is_set: true)
-      else
-        RoleAbility.create(role_id: role.id, ability_id: new_ability.id, is_set: false)
-      end
-    end
+    # Role.all.each do |role|
+    #   if roles_who_have.include?(role.name.to_sym)
+    #     RoleAbility.create(role_id: role.id, ability_id: new_ability.id, is_set: true)
+    #   else
+    #     RoleAbility.create(role_id: role.id, ability_id: new_ability.id, is_set: false)
+    #   end
+    # end
     new_ability
   end
 end
