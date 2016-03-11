@@ -10,7 +10,7 @@
         .modal-body
           %table.table
             %tr
-              %td= text_field_tag :name, params[:name], class: "form-control", placeholder: "Текст вопроса"
+              %td= text_field_tag :name, params[:name], class: "form-control", placeholder: "Название анкеты"
             %tr
               %td= select_tag :type_id, options_for_select([['Амбулатория', 1], ['Стационар', 2]]), class: "form-control", prompt: "Выберите тип"
         .modal-footer
