@@ -4,10 +4,11 @@ gem 'rails', '4.2.1'
 	
 #assents
 group :assets do
+9
 	gem 'sass-rails', '~> 5.0'
 	gem 'coffee-rails', '~> 4.1.0'
 	gem 'uglifier', '>= 1.3.0'
-
+  gem 'jquery-ui-rails'
 end
 
 group :development, :test do
@@ -31,15 +32,13 @@ group :development, :test do
   gem 'turn', :require => false
   gem 'meta_request'
   gem 'ar-octopus'
-  gem 'fullcalendar-rails'
-
-
 end
 
 
 
 
 #system
+gem 'fullcalendar-rails'
 gem 'pg'
 gem 'haml-rails'
 gem 'haml'
@@ -49,13 +48,12 @@ gem 'turbolinks'
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'twitter-typeahead-rails'
 # gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem "twitter-bootstrap-rails"
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'less-rails'
 gem 'therubyracer'
 
 gem 'less-rails-bootstrap'

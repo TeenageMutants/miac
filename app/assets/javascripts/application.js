@@ -22,14 +22,12 @@
 //= require jquery-migrate.min
 //= require jquery-ui
 //= require jquery.purr
+//= require bootstrap-sprockets
 //= require best_in_place
 //= require bootstrap-datetimepicker
-//= require fullcalendar
 //= require bootstrap-colorpicker
 //= require bootstrap.min.js
-//= require fullcalendar
-
-
+//= require jquery-ui
 
 window.onLoad = function(callback) {
     // binds ready event and turbolink page:load event
